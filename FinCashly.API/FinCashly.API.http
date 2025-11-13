@@ -1,0 +1,6 @@
+@FinCashly.API_HostAddress = http://localhost:5069
+
+GET {{FinCashly.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
