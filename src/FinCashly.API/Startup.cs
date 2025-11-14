@@ -1,4 +1,5 @@
 using System.Reflection;
+using FinCashly.API.Configurations;
 using Microsoft.OpenApi;
 
 public class Startup
@@ -14,6 +15,7 @@ public class Startup
     {
         string connectionString = _configuration.GetConnectionString("DefaultConnection")!;
         services.AddEndpointsApiExplorer();
+        services.AddDependencyInjections();
 
         services.AddSwaggerGen(options =>
         {
