@@ -14,4 +14,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FinCashly.Application\FinCashly.Application.csproj" />
+  </ItemGroup>
+
 </Project>
