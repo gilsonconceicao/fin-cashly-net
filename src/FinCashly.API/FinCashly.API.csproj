@@ -11,11 +11,17 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.23.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\FinCashly.Application\FinCashly.Application.csproj" />
+    <ProjectReference Include="..\FinCashly.Domain\FinCashly.Domain.csproj" />
+    <ProjectReference Include="..\FinCashly.Infrastructure\FinCashly.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

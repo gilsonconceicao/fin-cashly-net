@@ -1,5 +1,7 @@
 using System.Reflection;
 using FinCashly.API.Configurations;
+using FinCashly.Infrastructure.DataBase;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
 
 public class Startup
@@ -16,6 +18,7 @@ public class Startup
         string connectionString = _configuration.GetConnectionString("DefaultConnection")!;
         services.AddEndpointsApiExplorer();
         services.AddDependencyInjections();
+        services.ConnectionWithDataBase(connectionString);
 
         services.AddSwaggerGen(options =>
         {
