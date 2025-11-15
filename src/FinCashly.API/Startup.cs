@@ -19,6 +19,9 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.AddDependencyInjections();
         services.ConnectionWithDataBase(connectionString);
+        services.EnableFluentValidations();
+        services.AddMediators();
+        services.AddRepositories();
 
         services.AddSwaggerGen(options =>
         {

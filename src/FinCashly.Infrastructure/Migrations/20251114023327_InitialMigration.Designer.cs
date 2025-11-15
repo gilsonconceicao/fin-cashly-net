@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace FinCashly.Infrastructure.Migrations
 {
-    [DbContext(typeof(DataBaseContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20251114023327_InitialMigration")]
     partial class InitialMigration
     {

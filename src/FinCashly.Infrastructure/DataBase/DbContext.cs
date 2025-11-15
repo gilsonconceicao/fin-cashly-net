@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FinCashly.Infrastructure.DataBase;
 
-public class DataBaseContext : DbContext
+public class ApplicationDbContext : DbContext
 {
-    public DataBaseContext(DbContextOptions<DataBaseContext> options) : base(options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
     }
 

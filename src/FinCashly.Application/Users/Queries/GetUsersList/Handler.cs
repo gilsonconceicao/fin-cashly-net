@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace FinCashly.Application.Users.GetUsersList;
+namespace FinCashly.Application.Users.Queries.GetUsersList;
 
 public class GetUsersListHandler : IRequestHandler<GetUsersListQuery, List<string>>
 {

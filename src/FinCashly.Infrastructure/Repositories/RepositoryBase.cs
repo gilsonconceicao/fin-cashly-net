@@ -1,0 +1,45 @@
+using FinCashly.Domain.Entities;
+using FinCashly.Domain.Repositories;
+using FinCashly.Infrastructure.DataBase;
+using Microsoft.EntityFrameworkCore;
+#nullable disable
+
+namespace FinCashly.Infrastructure.Repositories;
+
+public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : EntityBase
+{
+    protected readonly ApplicationDbContext DbContext;
+
+    protected RepositoryBase(ApplicationDbContext dbContext)
+    {
+        DbContext = dbContext;
+    }
+
+    public async Task<IList<TEntity>> GetAllAsync()
+    {
+        return await DbContext.Set<TEntity>().ToListAsync();
+    }
+
+    public async Task<TEntity> GetByIdAsync(Guid id)
+    {
+        return await DbContext.Set<TEntity>().FirstOrDefaultAsync(x => x.Id == id);
+    }
+
+    public async Task AddAsync(TEntity entity)
+    {
+        await DbContext.Set<TEntity>().AddAsync(entity);
+
+    }
+
+    public Task DeleteAsync(TEntity entity)
+    {
+        DbContext.Set<TEntity>().Remove(entity);
+        return Task.CompletedTask;
+    }
+
+    public Task UpdateAsync(TEntity entity)
+    {
+        DbContext.Set<TEntity>().Update(entity);
+        return Task.CompletedTask;
+    }
+}
