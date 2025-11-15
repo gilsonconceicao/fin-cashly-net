@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using Api.Controllers;
-using FinCashly.Application.Users.GetUsersList;
+using FinCashly.Application.Users.Queries.GetUsersList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

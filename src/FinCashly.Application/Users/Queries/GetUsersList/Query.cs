@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace FinCashly.Application.Users.GetUsersList; 
+namespace FinCashly.Application.Users.Queries.GetUsersList; 
 public record GetUsersListQuery(
     int page = 1, 
     int size = 5
