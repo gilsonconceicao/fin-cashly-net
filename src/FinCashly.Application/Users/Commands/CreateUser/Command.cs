@@ -1,10 +1,9 @@
+using FinCashly.Application.Common.DTOs;
 using MediatR;
 
-namespace FinCashly.Application.Users.Commands.CreateUser; 
+namespace FinCashly.Application.Users.Commands.CreateUser;
 #nullable disable
 public class CreateUserCommand : IRequest<Guid>
 {
-    public string Name { get; set; }
-    public string Email { get; set; }
-
+    public CreateUserDto Payload { get; set; }
 }

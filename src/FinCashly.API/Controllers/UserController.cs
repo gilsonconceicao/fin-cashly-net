@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Api.Controllers;
+using FinCashly.Application.Common.DTOs;
 using FinCashly.Application.Users.Commands.CreateUser;
 using FinCashly.Application.Users.Queries.GetUsersList;
 using MediatR;
@@ -14,6 +15,9 @@ namespace FinCashly.API.Controllers
         {
         }
 
+        /// <summary>
+        /// Obtem todos os usuários
+        /// </summary>
         [HttpGet]
         public async Task<IActionResult> GetUsers([FromQuery] GetUsersListQuery mediator)
         {
@@ -21,10 +25,16 @@ namespace FinCashly.API.Controllers
             return Ok(firstTeste);
         }
 
+        /// <summary>
+        /// Cria um novo usuário
+        /// </summary>
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromBody] CreateUserCommand command)
+        public async Task<IActionResult> CreateAsync([FromBody] CreateUserDto model)
         {
-            var firstTeste = await _mediator.Send(command);
+            var firstTeste = await _mediator.Send(new CreateUserCommand
+            {
+                Payload = model
+            });
             return Ok(firstTeste);
         }
     }

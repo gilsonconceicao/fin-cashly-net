@@ -7,7 +7,7 @@ public class CreateUserValidator : AbstractValidator<CreateUserCommand>
 {
     public CreateUserValidator()
     {
-        RuleFor(field => field.Email)
+        RuleFor(field => field.Payload.Email)
             .NotNull()
             .WithMessage("Email precisa ser informado")
             .NotEmpty()
@@ -15,7 +15,7 @@ public class CreateUserValidator : AbstractValidator<CreateUserCommand>
             .EmailAddress()
             .WithMessage("Endereço de e-mail está no formato incorreto");
 
-        RuleFor(field => field.Name)
+        RuleFor(field => field.Payload.Name)
              .NotNull()
             .WithMessage("Nome precisa ser informado")
             .NotEmpty()
