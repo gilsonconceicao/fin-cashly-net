@@ -1,8 +1,7 @@
-using System.Reflection;
 using FinCashly.API.Configurations;
-using FinCashly.Infrastructure.DataBase;
+using FinCashly.API.Extensions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi;
+using Microsoft.OpenApi.Models;
 
 public class Startup
 {
@@ -23,6 +22,8 @@ public class Startup
         services.AddMediators();
         services.AddRepositories();
 
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
         services.AddSwaggerGen(options =>
         {
             options.SwaggerDoc("v1", new OpenApiInfo
@@ -31,18 +32,16 @@ public class Startup
                 Title = "Fin Cashly",
                 Description = "Management your transactions",
             });
-            options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            options.SchemaFilter<SchemeFilterSwashbuckle>();
+
+            var xmlFiles = Directory.GetFiles(AppContext.BaseDirectory, "*.xml", SearchOption.TopDirectoryOnly);
+
+            foreach (var xmlFile in xmlFiles)
             {
-                Description = @"JWT Authorization header using the Bearer scheme. \r\n\r\n
-                      Enter 'Bearer' [space] and then your token in the text input below.
-                      \r\n\r\nExample: 'Bearer 12345abcdef'",
-                Name = "Authorization",
-                In = ParameterLocation.Header,
-                Type = SecuritySchemeType.ApiKey,
-                Scheme = "Bearer"
-            });
-            var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                options.IncludeXmlComments(xmlFile, includeControllerXmlComments: true);
+            }
         });
+
 
         services.AddControllers();
 
@@ -77,7 +76,7 @@ public class Startup
         });
 
         app.UseRouting();
-        
+
         app.UseCors(policy =>
         {
             policy.AllowAnyOrigin();
