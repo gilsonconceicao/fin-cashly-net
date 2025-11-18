@@ -1,4 +1,7 @@
-namespace FinCashly.Application.Common.DTOs;
+using FinCashly.Application.Accounts.Commands.CreateAccount;
+using FinCashly.Application.Goals.Commands.CreateAccount;
+
+namespace FinCashly.Application.Users.Commands.CreateUser;
 #nullable disable
 public class CreateUserDto
 {
@@ -15,11 +18,11 @@ public class CreateUserDto
     /// <summary>
     /// Contas bancárias do usuário
     /// </summary>
-    public IList<CreateAccountByUserDto> Accounsts { get; set; } = new List<CreateAccountByUserDto>();
+    public List<CreateAccountByUserDto> Accounsts { get; set; } = new List<CreateAccountByUserDto>();
 
     /// <summary>
     /// Objetivos financeiros do usuário
     /// </summary>
-    public IList<CreateGoalByUserDto> Goals { get; set; } = new List<CreateGoalByUserDto>();
+    public List<CreateGoalByUserDto> Goals { get; set; } = new List<CreateGoalByUserDto>();
 
 }

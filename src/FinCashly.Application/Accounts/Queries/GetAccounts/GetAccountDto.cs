@@ -1,8 +1,8 @@
 using FinCashly.Domain.Enums;
 
-namespace FinCashly.Application.Common.DTOs;
-
-public class CreateAccountByUserDto
+namespace FinCashly.Application.Accounts.Queries.GetAccounts;
+#nullable disable
+public class GetAccountDto
 {
     /// <summary>
     /// Nome da conta
@@ -13,9 +13,10 @@ public class CreateAccountByUserDto
     /// Saldo da conta
     /// </summary>
     public decimal Balance { get; set; } = 0;
+    
     /// <summary>
     /// Tipo de conta bancária
     /// </summary>
     public AccountTypeEnum Type { get; set; } = AccountTypeEnum.Checking;
-
+    public string TypeDisplay { get; set; }
 }
