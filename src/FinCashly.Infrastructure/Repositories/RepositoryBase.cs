@@ -1,3 +1,4 @@
+using FinCashly.Domain.Common;
 using FinCashly.Domain.Entities;
 using FinCashly.Domain.Repositories;
 using FinCashly.Infrastructure.DataBase;
@@ -15,9 +16,25 @@ public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where T
         DbContext = dbContext;
     }
 
-    public async Task<IList<TEntity>> GetAllAsync()
+    public async Task<Paginated<TEntity>> GetGenericPaginatedList(int page, int size)
     {
-        return await DbContext.Set<TEntity>().ToListAsync();
+        int skipCount = page * size; 
+        
+        var dataAll = DbContext.Set<TEntity>(); 
+
+        var data = await dataAll
+                        .OrderBy(e => e.CreatedAt)
+                        .Skip(skipCount)
+                        .Take(size)
+                        .ToListAsync();
+
+        return new Paginated<TEntity>
+        {
+            Data = data, 
+            Page = page,
+            TotalItems = dataAll.Count(),
+            TotalPages = (int)Math.Ceiling(dataAll.Count() / (double)size)
+        };
     }
 
     public async Task<TEntity> GetByIdAsync(Guid id)
