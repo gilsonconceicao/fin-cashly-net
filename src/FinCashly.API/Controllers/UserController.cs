@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Api.Controllers;
 using FinCashly.Application.Common.DTOs;
 using FinCashly.Application.Users.Commands.CreateUser;
+using FinCashly.Application.Users.Commands.UpdateUser;
 using FinCashly.Application.Users.Queries.GetUsersList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -21,8 +22,8 @@ namespace FinCashly.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUsers([FromQuery] GetUsersListQuery mediator)
         {
-            var firstTeste = await _mediator.Send(mediator);
-            return Ok(firstTeste);
+            var users = await _mediator.Send(mediator);
+            return Ok(users);
         }
 
         /// <summary>
@@ -31,11 +32,25 @@ namespace FinCashly.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateAsync([FromBody] CreateUserDto model)
         {
-            var firstTeste = await _mediator.Send(new CreateUserCommand
+            var create = await _mediator.Send(new CreateUserCommand
             {
                 Payload = model
             });
-            return Ok(firstTeste);
+            return Ok(create);
+        }
+
+        /// <summary>
+        /// Atualiza um usuário existente
+        /// </summary>
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUserAsync([FromRoute] Guid id, UpdateUserDto model)
+        {
+            var update = await _mediator.Send(new UpdateUserCommand
+            {
+                Id = id,
+                Payload = model
+            });
+            return Ok(update);
         }
     }
 }
