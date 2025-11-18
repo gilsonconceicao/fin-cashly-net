@@ -18,7 +18,7 @@ public class Goal : EntityBase
     [Column(TypeName = "decimal(18,2)")]
     public decimal CurrentAmount { get; set; } = 0;
 
-    public DateTime? Deadline { get; set; }
+    public DateTime? Deadline { get; set; } = null;
 
     public bool IsCompleted { get; set; } = false;
 

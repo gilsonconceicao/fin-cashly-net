@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace FinCashly.Infrastructure.Migrations
 {
-    [DbContext(typeof(DataBaseContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     partial class DataBaseContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
