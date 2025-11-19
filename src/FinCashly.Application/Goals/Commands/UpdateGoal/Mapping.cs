@@ -9,6 +9,6 @@ public class UpdateGoalMappings : Profile
 {
     public UpdateGoalMappings()
     {
-        CreateMap<UpdateGoalByUserDto, Goal>();
+        CreateMap<UpdateGoalDto, Goal>();
     }
 }

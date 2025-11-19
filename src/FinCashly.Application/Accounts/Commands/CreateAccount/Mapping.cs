@@ -8,6 +8,6 @@ public class CreateAccountMapping : Profile
 {
     public CreateAccountMapping()
     {
-        CreateMap<CreateAccountByUserDto, Account>();
+        CreateMap<CreateAccountDto, Account>();
     }
 }

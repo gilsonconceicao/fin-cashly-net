@@ -2,7 +2,7 @@ using FinCashly.Domain.Enums;
 
 namespace FinCashly.Application.Accounts.Commands.UpdateAccount;
 
-public class UpdateAccountByUserDto
+public class UpdateAccountDto
 {
     /// <summary>
     /// Nome da conta

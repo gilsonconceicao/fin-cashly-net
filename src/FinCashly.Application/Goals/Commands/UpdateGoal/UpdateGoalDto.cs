@@ -1,6 +1,6 @@
 namespace FinCashly.Application.Goals.Commands.UpdateGoal;
 
-public class UpdateGoalByUserDto
+public class UpdateGoalDto
 {
     /// <summary>
     /// Título do objetivo

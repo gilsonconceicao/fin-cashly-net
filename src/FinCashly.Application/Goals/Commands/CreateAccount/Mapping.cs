@@ -8,6 +8,6 @@ public class CreateGoalMapping : Profile
 {
     public CreateGoalMapping()
     {
-        CreateMap<CreateGoalByUserDto, Goal>();
+        CreateMap<CreateGoalDto, Goal>();
     }
 }

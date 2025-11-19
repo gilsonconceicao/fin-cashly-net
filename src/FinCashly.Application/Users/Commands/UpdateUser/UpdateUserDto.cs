@@ -17,11 +17,11 @@ public class UpdateUserDto
     /// <summary>
     /// Contas bancárias do usuário
     /// </summary>
-    public List<UpdateAccountByUserDto> Accounsts { get; set; } = new List<UpdateAccountByUserDto>();
+    public List<UpdateAccountDto> Accounsts { get; set; } = new List<UpdateAccountDto>();
 
     /// <summary>
     /// Objetivos financeiros do usuário
     /// </summary>
-    public List<UpdateGoalByUserDto> Goals { get; set; } = new List<UpdateGoalByUserDto>();
+    public List<UpdateGoalDto> Goals { get; set; } = new List<UpdateGoalDto>();
 
 }

@@ -2,7 +2,7 @@ using FinCashly.Domain.Enums;
 
 namespace FinCashly.Application.Accounts.Commands.CreateAccount;
 
-public class CreateAccountByUserDto
+public class CreateAccountDto
 {
     /// <summary>
     /// Nome da conta

@@ -7,6 +7,6 @@ public class CreateAccountMapping : Profile
 {
     public CreateAccountMapping()
     {
-        CreateMap<UpdateAccountByUserDto, Account>();
+        CreateMap<UpdateAccountDto, Account>();
     }
 }

@@ -1,6 +1,6 @@
 namespace FinCashly.Application.Goals.Commands.CreateAccount;
 
-public class CreateGoalByUserDto
+public class CreateGoalDto
 {
     /// <summary>
     /// Título do objetivo

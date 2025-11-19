@@ -18,11 +18,11 @@ public class CreateUserDto
     /// <summary>
     /// Contas bancárias do usuário
     /// </summary>
-    public List<CreateAccountByUserDto> Accounsts { get; set; } = new List<CreateAccountByUserDto>();
+    public List<CreateAccountDto> Accounsts { get; set; } = new List<CreateAccountDto>();
 
     /// <summary>
     /// Objetivos financeiros do usuário
     /// </summary>
-    public List<CreateGoalByUserDto> Goals { get; set; } = new List<CreateGoalByUserDto>();
+    public List<CreateGoalDto> Goals { get; set; } = new List<CreateGoalDto>();
 
 }
