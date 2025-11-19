@@ -8,10 +8,12 @@ namespace FinCashly.Application.Users.Commands.UpdateUser;
 public class UpdateUserHandler : IRequestHandler<UpdateUserCommand, Guid>
 {
     private readonly IUnitOfWork _uow;
+    private readonly IMapper _mapper;
 
-    public UpdateUserHandler(IUnitOfWork unitOfWork)
+    public UpdateUserHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
         _uow = unitOfWork;
+        _mapper = mapper;
     }
 
     public async Task<Guid> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
@@ -32,6 +34,15 @@ public class UpdateUserHandler : IRequestHandler<UpdateUserCommand, Guid>
 
             if (!string.IsNullOrEmpty(payload.Email))
                 user.Email = payload.Email;
+
+            if (payload.Accounsts != null && payload.Accounsts.Count > 0)
+            {
+                user.Accounts = _mapper.Map<List<Account>>(payload.Accounsts);
+            }
+            if (payload.Goals != null && payload.Goals.Count > 0)
+            {
+                user.Goals = _mapper.Map<List<Goal>>(payload.Goals);
+            }
             
             await _uow.Users.UpdateAsync(user);
 

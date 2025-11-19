@@ -21,6 +21,7 @@ public class UserRepository : RepositoryBase<User>, IUserRepository
         var data = await dataAll
                         .Include(u => u.Accounts)
                         .Include(u => u.Goals)
+                        .Where(e => e.IsDeleted == false)
                         .OrderBy(e => e.CreatedAt)
                         .Skip(skipCount)
                         .Take(size)

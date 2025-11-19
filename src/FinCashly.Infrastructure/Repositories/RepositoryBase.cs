@@ -23,6 +23,7 @@ public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where T
         var dataAll = DbContext.Set<TEntity>(); 
 
         var data = await dataAll
+                        .Where(e => e.IsDeleted == false)
                         .OrderBy(e => e.CreatedAt)
                         .Skip(skipCount)
                         .Take(size)
@@ -49,6 +50,13 @@ public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where T
     }
 
     public Task DeleteAsync(TEntity entity)
+    {
+        entity.IsDeleted = true;
+        DbContext.Set<TEntity>().Update(entity);
+        return Task.CompletedTask;
+    }
+
+    public Task DeleteForEverAsync(TEntity entity)
     {
         DbContext.Set<TEntity>().Remove(entity);
         return Task.CompletedTask;

@@ -93,11 +93,6 @@ public class Startup
         });
     }
 
-    // private static DataBaseContext GetPostgreSql(IServiceCollection services)
-    // {
-    //     return (DataBaseContext)services.BuildServiceProvider().GetService(typeof(DataBaseContext))!;
-    // }
-
     private static ILogger<Startup> GetLogger(IServiceCollection services)
     {
         return (ILogger<Startup>)services.BuildServiceProvider().GetService(typeof(ILogger<Startup>))!;

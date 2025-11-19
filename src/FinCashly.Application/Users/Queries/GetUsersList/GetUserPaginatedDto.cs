@@ -3,7 +3,7 @@ using FinCashly.Application.Common.DTOs;
 using FinCashly.Application.Goals.Queries.GetGoalList;
 #nullable disable
 namespace FinCashly.Application.Users.Queries.GetUsersList;
-public class GetUserPaginatedDto : BaseEntityDto
+public class GetUserPaginatedDto : EntityBaseDto
 {
     /// <summary>
     /// Nome do usuário
