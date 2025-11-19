@@ -8,5 +8,6 @@ public interface IRepositoryBase<T> where T : class
     Task<Paginated<T>> GetGenericPaginatedList(int Page = 0, int size = 5);
     Task AddAsync(T entity);
     Task UpdateAsync(T entity);
+    Task DeleteForEverAsync(T entity);
     Task DeleteAsync(T entity);
 }

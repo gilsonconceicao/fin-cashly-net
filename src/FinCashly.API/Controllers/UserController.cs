@@ -1,7 +1,6 @@
-using System.Threading.Tasks;
 using Api.Controllers;
-using FinCashly.Application.Common.DTOs;
 using FinCashly.Application.Users.Commands.CreateUser;
+using FinCashly.Application.Users.Commands.DeleteUser;
 using FinCashly.Application.Users.Commands.UpdateUser;
 using FinCashly.Application.Users.Queries.GetUsersList;
 using MediatR;
@@ -49,6 +48,19 @@ namespace FinCashly.API.Controllers
             {
                 Id = id,
                 Payload = model
+            });
+            return Ok(update);
+        }
+
+        /// <summary>
+        /// Remove um usuário existente
+        /// </summary>
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUserAsync([FromRoute] Guid id)
+        {
+            var update = await _mediator.Send(new DeleteUserCommand
+            {
+                Id = id
             });
             return Ok(update);
         }
