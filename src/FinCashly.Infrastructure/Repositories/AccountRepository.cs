@@ -4,7 +4,7 @@ using FinCashly.Infrastructure.DataBase;
 
 namespace FinCashly.Infrastructure.Repositories;
 
-public class AccountRepository : RepositoryBase<User>, IAccountRepository
+public class AccountRepository : RepositoryBase<Account>, IAccountRepository
 {
     public AccountRepository(ApplicationDbContext dbContext) : base(dbContext)
     {

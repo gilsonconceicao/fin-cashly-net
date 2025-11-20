@@ -3,11 +3,11 @@ using MediatR;
 
 namespace FinCashly.Application.Users.Commands.CreateUser;
 #nullable disable
-public class CreateUserValidator : AbstractValidator<CreateUserCommand>
+public class CreateUserValidator : AbstractValidator<CreateUserDto>
 {
     public CreateUserValidator()
     {
-        RuleFor(field => field.Payload.Email)
+        RuleFor(field => field.Email)
             .NotNull()
             .WithMessage("Email precisa ser informado")
             .NotEmpty()
@@ -15,8 +15,8 @@ public class CreateUserValidator : AbstractValidator<CreateUserCommand>
             .EmailAddress()
             .WithMessage("Endereço de e-mail está no formato incorreto");
 
-        RuleFor(field => field.Payload.Name)
-             .NotNull()
+        RuleFor(field => field.Name)
+            .NotNull()
             .WithMessage("Nome precisa ser informado")
             .NotEmpty()
             .WithMessage("Nome não pode ser vazio");
