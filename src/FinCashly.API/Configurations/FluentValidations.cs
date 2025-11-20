@@ -9,6 +9,7 @@ public static class Validations
     {
         services.AddFluentValidationAutoValidation();
         services.AddValidatorsFromAssemblyContaining<CreateUserValidator>();
+        services.AddValidatorsFromAssemblyContaining<CreateAccountValidator>();
 
         return services; 
     }

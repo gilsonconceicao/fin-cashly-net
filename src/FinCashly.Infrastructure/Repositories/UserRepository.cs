@@ -19,8 +19,8 @@ public class UserRepository : RepositoryBase<User>, IUserRepository
         var dataAll = DbContext.Users;
 
         var data = await dataAll
-                        .Include(u => u.Accounts)
-                        .Include(u => u.Goals)
+                        .Include(u => u.Accounts.Where(acc => !acc.IsDeleted))
+                        .Include(u => u.Goals.Where(g => !g.IsDeleted))
                         .Where(e => e.IsDeleted == false)
                         .OrderBy(e => e.CreatedAt)
                         .Skip(skipCount)
