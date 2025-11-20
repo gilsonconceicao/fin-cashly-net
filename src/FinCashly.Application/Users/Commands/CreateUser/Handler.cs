@@ -26,23 +26,6 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Guid>
             await _uow.BeginTransactionAsync();
 
             await _uow.Users.AddAsync(user);
-
-            if (payload.Accounsts.Count > 0)
-            {
-                foreach (var account in payload.Accounsts)
-                {
-                    user.Accounts.Add(_mapper.Map<Account>(account));
-                }
-            }
-
-            if (payload.Goals.Count > 0)
-            {
-                foreach (var goal in payload.Goals)
-                {
-                    user.Goals.Add(_mapper.Map<Goal>(goal));
-                }
-            }
-
             await _uow.CommitTransactionAsync();
             return user.Id;
         }

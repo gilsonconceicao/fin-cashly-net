@@ -34,16 +34,7 @@ public class UpdateUserHandler : IRequestHandler<UpdateUserCommand, Guid>
 
             if (!string.IsNullOrEmpty(payload.Email))
                 user.Email = payload.Email;
-
-            if (payload.Accounsts != null && payload.Accounsts.Count > 0)
-            {
-                user.Accounts = _mapper.Map<List<Account>>(payload.Accounsts);
-            }
-            if (payload.Goals != null && payload.Goals.Count > 0)
-            {
-                user.Goals = _mapper.Map<List<Goal>>(payload.Goals);
-            }
-            
+                
             await _uow.Users.UpdateAsync(user);
 
             await _uow.SaveChangesAsync();
