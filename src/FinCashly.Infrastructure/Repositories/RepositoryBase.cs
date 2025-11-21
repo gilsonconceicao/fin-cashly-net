@@ -15,32 +15,12 @@ public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where T
     {
         DbContext = dbContext;
     }
-
-    public async Task<Paginated<TEntity>> GetGenericPaginatedList(int page, int size)
-    {
-        int skipCount = page * size; 
-        
-        var dataAll = DbContext.Set<TEntity>(); 
-
-        var data = await dataAll
-                        .Where(e => e.IsDeleted == false)
-                        .OrderBy(e => e.CreatedAt)
-                        .Skip(skipCount)
-                        .Take(size)
-                        .ToListAsync();
-
-        return new Paginated<TEntity>
-        {
-            Data = data, 
-            Page = page,
-            TotalItems = dataAll.Count(),
-            TotalPages = (int)Math.Ceiling(dataAll.Count() / (double)size)
-        };
-    }
-
+    
     public async Task<TEntity> GetByIdAsync(Guid id)
     {
-        return await DbContext.Set<TEntity>().FirstOrDefaultAsync(x => x.Id == id);
+        return await DbContext.Set<TEntity>()
+            .Where(c => c.IsDeleted == false)
+            .FirstOrDefaultAsync(x => x.Id == id);
     }
 
     public async Task AddAsync(TEntity entity)
