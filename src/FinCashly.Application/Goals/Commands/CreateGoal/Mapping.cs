@@ -1,8 +1,7 @@
 using AutoMapper;
-using FinCashly.Application.Common.DTOs;
 using FinCashly.Domain.Entities;
 
-namespace FinCashly.Application.Goals.Commands.CreateAccount;
+namespace FinCashly.Application.Goals.Commands.CreateGoal;
 
 public class CreateGoalMapping : Profile
 {

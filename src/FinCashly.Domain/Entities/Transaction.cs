@@ -11,7 +11,7 @@ public class Transaction : EntityBase
     public Guid AccountId { get; set; }
 
     [Required]
-    public Guid CategoryId { get; set; }
+    public Guid? CategoryId { get; set; } = null!; 
 
     [Required, Column(TypeName = "decimal(18,2)")]
     public decimal Amount { get; set; }
@@ -22,7 +22,7 @@ public class Transaction : EntityBase
     [MaxLength(255)]
     public string? Description { get; set; }
 
-    public DateTime Date { get; set; } = DateTime.UtcNow;
+    public DateTime Date { get; set; }
 
     // Relationships
     [ForeignKey(nameof(AccountId))]
