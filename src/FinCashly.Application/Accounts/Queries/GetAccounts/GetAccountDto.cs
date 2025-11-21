@@ -4,6 +4,7 @@ namespace FinCashly.Application.Accounts.Queries.GetAccounts;
 #nullable disable
 public class GetAccountDto
 {
+    public Guid Id { get; set; }
     /// <summary>
     /// Nome da conta
     /// </summary>
@@ -13,7 +14,7 @@ public class GetAccountDto
     /// Saldo da conta
     /// </summary>
     public decimal Balance { get; set; } = 0;
-    
+
     /// <summary>
     /// Tipo de conta bancária
     /// </summary>

@@ -9,8 +9,6 @@ public class Transaction : EntityBase
 
     [Required]
     public Guid AccountId { get; set; }
-
-    [Required]
     public Guid? CategoryId { get; set; } = null!; 
 
     [Required, Column(TypeName = "decimal(18,2)")]
@@ -29,5 +27,5 @@ public class Transaction : EntityBase
     public Account Account { get; set; } = null!;
 
     [ForeignKey(nameof(CategoryId))]
-    public Category Category { get; set; } = null!;
+    public Category? Category { get; set; } = null!;
 }

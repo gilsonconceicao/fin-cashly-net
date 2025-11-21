@@ -21,12 +21,10 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
         builder.Property(x => x.IsDefault)
             .IsRequired();
 
-        // 1:N -> Category -> Transactions
         builder.HasMany(x => x.Transactions)
             .WithOne(x => x.Category)
             .HasForeignKey(x => x.CategoryId);
 
-        // 1:N -> Category -> Goals (se for real no seu domínio)
         builder.HasMany(x => x.Goals)
             .WithOne()
             .OnDelete(DeleteBehavior.NoAction);

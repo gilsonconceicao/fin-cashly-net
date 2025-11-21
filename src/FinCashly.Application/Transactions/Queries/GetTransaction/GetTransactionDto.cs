@@ -6,6 +6,7 @@ namespace FinCashly.Application.Transactions.Queries.GetTransaction;
 
 public class GetTransactionDto
 {
+    public Guid Id { get; set; }
     public Guid AccountId { get; set; }
 
     public Guid? CategoryId { get; set; }
