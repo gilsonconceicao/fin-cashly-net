@@ -6,27 +6,28 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FinCashly.Infrastructure.Repositories;
 
-public class AccountRepository : RepositoryBase<Account>, IAccountRepository
+public class TransactionRepository : RepositoryBase<Transaction>, ITransactionsRepository
 {
-    public AccountRepository(ApplicationDbContext dbContext) : base(dbContext)
+    public TransactionRepository(ApplicationDbContext dbContext) : base(dbContext)
     {
     }
 
-    public async Task<Paginated<Account>> GetAccountsPaginated(int page = 0, int size = 5)
+    public async Task<Paginated<Transaction>> GetTransactionPaginated(int page = 0, int size = 5)
     {
-          int skipCount = page * size;
+        int skipCount = page * size;
 
-        var dataAll = DbContext.Accounts;
+        var dataAll = DbContext.Transactions;
 
         var data = await dataAll
-                        .Include(u => u.Transactions.Where(x => !x.IsDeleted))
+                        .Include(u => u.Account)
+                        .Include(u => u.Category)
                         .Where(e => e.IsDeleted == false)
                         .OrderBy(e => e.CreatedAt)
                         .Skip(skipCount)
                         .Take(size)
                         .ToListAsync();
 
-        return new Paginated<Account>
+        return new Paginated<Transaction>
         {
             Data = data,
             Page = page,

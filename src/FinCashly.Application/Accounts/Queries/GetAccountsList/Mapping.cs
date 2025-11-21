@@ -10,6 +10,7 @@ namespace FinCashly.Application.Accounts.Queries.GetAccountsList
         public GetAccountListMappings()
         {
             CreateMap<Account, GetAccountsListDto>()
+                .ForMember(dest => dest.Transactions, opt => opt.MapFrom(src => src.Transactions))
                 .ForMember(dest => dest.TypeDisplay, opt => opt.MapFrom(src => src.Type.GetDescription()));
                 
             CreateMap<Paginated<Account>, Paginated<GetAccountsListDto>>()

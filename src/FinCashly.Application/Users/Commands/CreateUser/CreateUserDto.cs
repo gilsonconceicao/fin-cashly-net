@@ -1,5 +1,5 @@
 using FinCashly.Application.Accounts.Commands.CreateAccount;
-using FinCashly.Application.Goals.Commands.CreateAccount;
+using FinCashly.Application.Goals.Commands.CreateGoal;
 
 namespace FinCashly.Application.Users.Commands.CreateUser;
 #nullable disable

@@ -20,7 +20,7 @@ public class GetAccountsListHandler : IRequestHandler<GetAccountsListQuery, Pagi
     {
         try
         {
-            var list = await _uow.Accounts.GetGenericPaginatedList(request.Page, request.Size);
+            var list = await _uow.Accounts.GetAccountsPaginated(request.Page, request.Size);
             return _mapper.Map<Paginated<GetAccountsListDto>>(list);
         }
         catch (Exception ex)

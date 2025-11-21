@@ -33,6 +33,7 @@ public class TransactionConfiguration : IEntityTypeConfiguration<Transaction>
         builder.HasOne(x => x.Category)
             .WithMany(x => x.Transactions)
             .HasForeignKey(x => x.CategoryId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .IsRequired(false);
     }
 }
