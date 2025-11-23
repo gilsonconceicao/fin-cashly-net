@@ -1,5 +1,6 @@
 using Api.Controllers;
 using FinCashly.Application.Transactions.Commands.CreateTransaction;
+using FinCashly.Application.Transactions.Commands.DeleteTransaction;
 using FinCashly.Application.Transactions.Queries.GetTransactionList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -33,5 +34,19 @@ public class TransactionController : BaseController
             Payload = model
         });
         return Ok(create);
+    }
+
+    /// <summary>
+    /// Remove uma transação existente
+    /// </summary>
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteAsync([FromRoute] Guid id)
+    {
+        return Ok(
+            await _mediator.Send(new DeleteTransactionCommand
+            {
+                Id = id
+            })
+        );
     }
 }
