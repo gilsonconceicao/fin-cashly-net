@@ -8,61 +8,72 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinCashly.API.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
+    [Tags("Accounts")]
     public class AccountController : BaseController
     {
-        public AccountController(IMediator mediator)
-             : base(mediator)
+        public AccountController(IMediator mediator) : base(mediator)
         {
         }
 
         /// <summary>
-        /// Obtem todos os contas
+        /// Obtém uma lista paginada de contas.
         /// </summary>
+        /// <remarks>
+        /// Exemplo de requisição:
+        ///
+        ///     GET /api/account?page=0&amp;size=10
+        ///
+        /// </remarks>
         [HttpGet]
-        public async Task<IActionResult> GetAccounts([FromQuery] GetAccountsListQuery mediator)
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAccounts([FromQuery] GetAccountsListQuery query)
         {
-            return Ok(await _mediator.Send(mediator));
+            return Ok(await _mediator.Send(query));
         }
 
         /// <summary>
-        /// Adiciona uma nova conta a um usuário
+        /// Cria uma nova conta para um usuário.
         /// </summary>
-        [HttpPost("{userId}")]
-        public async Task<IActionResult> CreateAsync([FromRoute] Guid userId, [FromBody] CreateAccountDto model)
+        [HttpPost("{userId:guid}")]
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
+        public async Task<IActionResult> CreateAsync(Guid userId, [FromBody] CreateAccountDto model)
         {
-            var create = await _mediator.Send(new CreateAccountCommand
+            var result = await _mediator.Send(new CreateAccountCommand
             {
                 UserId = userId,
                 Payload = model
             });
-            return Ok(create);
+
+            return CreatedAtAction(nameof(GetAccounts), new { userId }, result);
         }
 
         /// <summary>
-        /// Atualiza uma conta existente de um usuário
+        /// Atualiza uma conta existente.
         /// </summary>
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, UpdateAccountDto model)
+        [HttpPut("{id:guid}")]
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpdateAsync(Guid id, [FromBody] UpdateAccountDto model)
         {
-            var update = await _mediator.Send(new UpdateAccountCommand
+            var result = await _mediator.Send(new UpdateAccountCommand
             {
                 AccountId = id,
                 Payload = model
             });
-            return Ok(update);
+
+            return Ok(result);
         }
 
         /// <summary>
-        /// Remove uma conta existente
+        /// Remove uma conta existente.
         /// </summary>
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAsync([FromRoute] Guid id)
+        [HttpDelete("{id:guid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> DeleteAsync(Guid id)
         {
-            var update = await _mediator.Send(new DeleteAccountCommand
-            {
-                Id = id
-            });
-            return Ok(update);
+            await _mediator.Send(new DeleteAccountCommand { Id = id });
+            return NoContent();
         }
     }
 }

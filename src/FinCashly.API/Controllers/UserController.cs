@@ -8,61 +8,60 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinCashly.API.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
+    [Tags("Users")]
     public class UserController : BaseController
     {
-        public UserController(IMediator mediator)
-             : base(mediator)
-        {
-        }
+        public UserController(IMediator mediator) : base(mediator) { }
 
         /// <summary>
-        /// Obtem todos os usuários
+        /// Obtém uma lista paginada de usuários.
+        /// <remarks>
+        /// Exemplo de requisição:
+        ///
+        ///     GET /api/user?page=0&amp;size=10
+        ///
+        /// </remarks>
         /// </summary>
         [HttpGet]
-        public async Task<IActionResult> GetUsers([FromQuery] GetUsersListQuery mediator)
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetUsers([FromQuery] GetUsersListQuery query)
         {
-            var users = await _mediator.Send(mediator);
-            return Ok(users);
+            return Ok(await _mediator.Send(query));
         }
 
         /// <summary>
-        /// Cria um novo usuário
+        /// Cria um novo usuário.
         /// </summary>
         [HttpPost]
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
         public async Task<IActionResult> CreateAsync([FromBody] CreateUserDto model)
         {
-            var create = await _mediator.Send(new CreateUserCommand
-            {
-                Payload = model
-            });
-            return Ok(create);
+            var result = await _mediator.Send(new CreateUserCommand { Payload = model });
+            return CreatedAtAction(nameof(GetUsers), result);
         }
 
         /// <summary>
-        /// Atualiza um usuário existente
+        /// Atualiza um usuário existente.
         /// </summary>
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUserAsync([FromRoute] Guid id, UpdateUserDto model)
+        [HttpPut("{id:guid}")]
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpdateUserAsync(Guid id, [FromBody] UpdateUserDto model)
         {
-            var update = await _mediator.Send(new UpdateUserCommand
-            {
-                Id = id,
-                Payload = model
-            });
-            return Ok(update);
+            var result = await _mediator.Send(new UpdateUserCommand { Id = id, Payload = model });
+            return Ok(result);
         }
 
         /// <summary>
-        /// Remove um usuário existente
+        /// Exclui um usuário existente.
         /// </summary>
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUserAsync([FromRoute] Guid id)
+        [HttpDelete("{id:guid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> DeleteUserAsync(Guid id)
         {
-            var update = await _mediator.Send(new DeleteUserCommand
-            {
-                Id = id
-            });
-            return Ok(update);
+            await _mediator.Send(new DeleteUserCommand { Id = id });
+            return NoContent();
         }
     }
 }

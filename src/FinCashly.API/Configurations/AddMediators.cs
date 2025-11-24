@@ -2,6 +2,9 @@ using FinCashly.Application.Accounts.Commands.CreateAccount;
 using FinCashly.Application.Accounts.Commands.DeleteAccount;
 using FinCashly.Application.Accounts.Commands.UpdateAccount;
 using FinCashly.Application.Accounts.Queries.GetAccountsList;
+using FinCashly.Application.Categories.Commands.CreateCategory;
+using FinCashly.Application.Categories.Commands.DeleteCategory;
+using FinCashly.Application.Categories.Commands.UpdateCategory;
 using FinCashly.Application.Transactions.Commands.CreateTransaction;
 using FinCashly.Application.Transactions.Commands.DeleteTransaction;
 using FinCashly.Application.Transactions.Commands.UpdateTransaction;
@@ -24,17 +27,26 @@ public static class Mediators
         services.AddTransient<IRequestHandler<DeleteUserCommand, bool>, DeleteUserHandler>();
         services.AddTransient<IRequestHandler<UpdateUserCommand, Guid>, UpdateUserHandler>();
         #endregion
+
         #region Accounts
         services.AddTransient<IRequestHandler<GetAccountsListQuery, Paginated<GetAccountsListDto>>, GetAccountsListHandler>();
         services.AddTransient<IRequestHandler<CreateAccountCommand, Guid>, CreateAccountHandler>();
         services.AddTransient<IRequestHandler<UpdateAccountCommand, Guid>, UpdateAccountHandler>();
         services.AddTransient<IRequestHandler<DeleteAccountCommand, bool>, DeleteAccountHandler>();
         #endregion
+
         #region Transactions
         services.AddTransient<IRequestHandler<GetTransactionListQuery, Paginated<GetTransactionPaginatedDto>>, GetTransactionListHandler>();
         services.AddTransient<IRequestHandler<CreateTransactionCommand, Guid>, CreateTransactionHandler>();
         services.AddTransient<IRequestHandler<DeleteTransactionCommand, bool>, DeleteTransactionHandler>();
         services.AddTransient<IRequestHandler<UpdateTransactionCommand, bool>, UpdateTransactionHandler>();
+        #endregion
+
+        #region Categories
+        // services.AddTransient<IRequestHandler<GetTransactionListQuery, Paginated<GetTransactionPaginatedDto>>, GetTransactionListHandler>();
+        services.AddTransient<IRequestHandler<CreateCategoryCommand, Guid>, CreateCategoryHandler>();
+        services.AddTransient<IRequestHandler<DeleteCategoryCommand, bool>, DeleteCategoryHandler>();
+        services.AddTransient<IRequestHandler<UpdateCategoryCommand, bool>, UpdateCategoryHandler>();
         #endregion
         return services;
     }

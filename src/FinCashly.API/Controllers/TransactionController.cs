@@ -8,60 +8,64 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinCashly.API.Controllers;
 
+[ApiController]
+[Route("api/[controller]")]
+[Tags("Transactions")]
 public class TransactionController : BaseController
 {
-    public TransactionController(IMediator mediator) : base(mediator)
-    {
-    }
+    public TransactionController(IMediator mediator) : base(mediator) { }
+
     /// <summary>
-    /// Obtem todas as transações
+    /// Obtém uma lista paginada de transações.
+    /// <remarks>
+    /// Exemplo de requisição:
+    ///
+    ///     GET /api/transaction?page=0&amp;size=10
+    ///
+    /// </remarks>
     /// </summary>
-    /// <param name="mediator">Parâmetros de entrada</param>
     [HttpGet]
-    public async Task<IActionResult> GetListPaginated([FromQuery] GetTransactionListQuery mediator)
+    [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetListPaginated([FromQuery] GetTransactionListQuery query)
     {
-        var users = await _mediator.Send(mediator);
-        return Ok(users);
+        return Ok(await _mediator.Send(query));
     }
 
     /// <summary>
-    /// Adiciona uma nova transação em uma conta
+    /// Cria uma nova transação vinculada a uma conta.
     /// </summary>
-    [HttpPost("{accountId}")]
-    public async Task<IActionResult> CreateAsync([FromRoute] Guid accountId, [FromBody] CreateTransactionDto model)
+    [HttpPost("{accountId:guid}")]
+    [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
+    public async Task<IActionResult> CreateAsync(Guid accountId, [FromBody] CreateTransactionDto model)
     {
-        var create = await _mediator.Send(new CreateTransactionCommand
+        var result = await _mediator.Send(new CreateTransactionCommand
         {
             AccountId = accountId,
             Payload = model
         });
-        return Ok(create);
+
+        return CreatedAtAction(nameof(GetListPaginated), result);
     }
 
     /// <summary>
-    /// Atualiza uma transação
+    /// Atualiza uma transação existente.
     /// </summary>
-    [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateTransactionDto model)
+    [HttpPut("{id:guid}")]
+    [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
+    public async Task<IActionResult> UpdateAsync(Guid id, [FromBody] UpdateTransactionDto model)
     {
-        var Update = await _mediator.Send(new UpdateTransactionCommand
-        {
-            Id = id,
-            Payload = model
-        });
-        return Ok(Update);
+        var result = await _mediator.Send(new UpdateTransactionCommand { Id = id, Payload = model });
+        return Ok(result);
     }
 
     /// <summary>
-    /// Remove uma transação existente
+    /// Exclui uma transação existente.
     /// </summary>
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteAsync([FromRoute] Guid id)
+    [HttpDelete("{id:guid}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public async Task<IActionResult> DeleteAsync(Guid id)
     {
-        await _mediator.Send(new DeleteTransactionCommand
-        {
-            Id = id
-        });
+        await _mediator.Send(new DeleteTransactionCommand { Id = id });
         return NoContent();
     }
 }
