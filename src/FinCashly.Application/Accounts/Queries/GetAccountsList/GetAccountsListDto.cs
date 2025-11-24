@@ -1,4 +1,5 @@
 using FinCashly.Application.Common.DTOs;
+using FinCashly.Application.Transactions.Queries.GetTransaction;
 using FinCashly.Domain.Enums;
 
 namespace FinCashly.Application.Accounts.Queries.GetAccountsList;
@@ -21,4 +22,5 @@ public class GetAccountsListDto : EntityBaseDto
     /// </summary>
     public AccountTypeEnum Type { get; set; } = AccountTypeEnum.Checking;
     public string TypeDisplay { get; set; }
+    public List<GetTransactionDto> Transactions {get; set; } = new List<GetTransactionDto>();
 }

@@ -12,7 +12,9 @@ public class UnitOfWork : IUnitOfWork
     private readonly ApplicationDbContext _context;
 
     IUserRepository? _userRepository;
+    ITransactionsRepository? _transactionRepository;
     IAccountRepository? _accountRepository;
+    ICategoryRepository? _categoryRepository;
 
     public UnitOfWork(ApplicationDbContext context)
     {
@@ -20,7 +22,9 @@ public class UnitOfWork : IUnitOfWork
     }
 
     public IUserRepository Users => _userRepository ??= new UserRepository(_context);
+    public ITransactionsRepository Transactions => _transactionRepository ??= new TransactionRepository(_context);
     public IAccountRepository Accounts => _accountRepository ??= new AccountRepository(_context);
+    public ICategoryRepository Categories => _categoryRepository ??= new CategoryRepository(_context);
 
     public async Task BeginTransactionAsync()
     {

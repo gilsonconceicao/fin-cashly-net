@@ -1,4 +1,4 @@
-namespace FinCashly.Application.Goals.Commands.CreateAccount;
+namespace FinCashly.Application.Goals.Commands.CreateGoal;
 
 public class CreateGoalDto
 {
