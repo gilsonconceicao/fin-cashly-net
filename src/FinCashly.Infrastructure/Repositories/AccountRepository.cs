@@ -14,8 +14,7 @@ public class AccountRepository : RepositoryBase<Account>, IAccountRepository
 
     public async Task<Paginated<Account>> GetAccountsPaginated(int page = 0, int size = 5)
     {
-          int skipCount = page * size;
-
+        int skipCount = page * size;
         var dataAll = DbContext.Accounts;
 
         var data = await dataAll
