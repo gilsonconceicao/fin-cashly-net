@@ -4,7 +4,6 @@ namespace FinCashly.Application.Transactions.Commands.CreateTransaction
 {
     public class CreateTransactionDto
     {
-        public Guid AccountId { get; set; }
         public Guid? CategoryId { get; set; } = null;
         public decimal Amount { get; set; }
         public TransactionTypeEnum Type { get; set; }

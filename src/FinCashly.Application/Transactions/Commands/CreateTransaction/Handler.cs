@@ -23,7 +23,7 @@ public class CreateTransactionHandler : IRequestHandler<CreateTransactionCommand
             await _uow.BeginTransactionAsync();
 
             var payload = request.Payload;
-            var account = await _uow.Accounts.GetByIdAsync(payload.AccountId)
+            var account = await _uow.Accounts.GetByIdAsync(request.AccountId)
                 ?? throw new Exception("Conta não encontrada ou não existe"); 
 
             var transaction = _mapper.Map<Transaction>(payload);

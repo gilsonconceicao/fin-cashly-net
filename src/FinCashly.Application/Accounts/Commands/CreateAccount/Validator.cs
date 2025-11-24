@@ -29,7 +29,7 @@ namespace FinCashly.Application.Users.Commands.CreateUser
                 .NotEmpty()
                 .WithMessage("Tipo de conta não pode ser vazio")
                 .IsInEnum()
-                .WithMessage($"Tipo não suportado, considere as opções: {string.Join(", ", Enum.GetValues<AccountTypeEnum>().Select(v => $"{(int)v}: {v.GetDescription()}"))}");
+                .WithMessage($"Tipo não suportado, considere as opções: {StringUtils.GetAvailableValues<AccountTypeEnum>()}");
         }
     }
 }

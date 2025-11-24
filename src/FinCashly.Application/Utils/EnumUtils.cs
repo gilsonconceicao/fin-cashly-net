@@ -1,6 +1,7 @@
 using System.ComponentModel;
 
-namespace FinCashly.Application.Utils; 
+namespace FinCashly.Application.Utils;
+
 public static class EnumExtensions
 {
     static public string GetDescription(this Enum enumValue)

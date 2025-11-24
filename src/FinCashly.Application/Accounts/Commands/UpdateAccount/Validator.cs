@@ -11,7 +11,7 @@ namespace FinCashly.Application.Accounts.Commands.UpdateAccount
         {
             RuleFor(field => field.Type)
                 .IsInEnum()
-                .WithMessage($"Tipo não suportado, considere as opções entre: {string.Join(", ", Enum.GetValues<AccountTypeEnum>().Select(v => $"{(int)v}: {v.GetDescription()}"))}");
+                .WithMessage($"Tipo não suportado, considere as opções entre: {StringUtils.GetAvailableValues<AccountTypeEnum>()}");
         }
     }
 }

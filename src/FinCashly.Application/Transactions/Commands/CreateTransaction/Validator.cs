@@ -26,6 +26,6 @@ public class CreateTransactionValidator : AbstractValidator<CreateTransactionDto
                 .NotEmpty()
                 .WithMessage("Tipo de transação não pode ser vazio")
                 .IsInEnum()
-                .WithMessage($"Tipo não suportado, considere as opções: {string.Join(", ", Enum.GetValues<TransactionTypeEnum>().Select(v => $"{(int)v}: {v.GetDescription()}"))}");
+                .WithMessage($"Tipo não suportado, considere as opções: {StringUtils.GetAvailableValues<TransactionTypeEnum>()}");
     }
 }
