@@ -2,6 +2,7 @@ using AutoMapper;
 using FinCashly.Domain.Common;
 using FinCashly.Domain.Repositories;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace FinCashly.Application.Categories.Queries.GetCategoryList;
 
@@ -9,11 +10,13 @@ public class GetCategoryListHandler : IRequestHandler<GetCategoryQuery, Paginate
 {
     private readonly IUnitOfWork _uow;
     private readonly IMapper _mapper;
+    private readonly ILogger<GetCategoryListHandler> _logger;
 
-    public GetCategoryListHandler(IUnitOfWork unitOfWork, IMapper mapper)
+    public GetCategoryListHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<GetCategoryListHandler> logger)
     {
         _uow = unitOfWork;
         _mapper = mapper;
+        _logger = logger;
     }
 
     public async Task<Paginated<GetCategoryPaginatedDto>> Handle(GetCategoryQuery request, CancellationToken cancellationToken)
@@ -25,7 +28,8 @@ public class GetCategoryListHandler : IRequestHandler<GetCategoryQuery, Paginate
         }
         catch (Exception ex)
         {
-            throw new Exception($"Erro ao obter listagem: {ex.Message}");
+            _logger.LogError(ex, "Erro ao consultar listagem de categorias");
+            throw;
         }
     }
 }

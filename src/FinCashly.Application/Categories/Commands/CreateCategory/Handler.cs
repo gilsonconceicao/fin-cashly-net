@@ -2,6 +2,7 @@ using AutoMapper;
 using FinCashly.Domain.Entities;
 using FinCashly.Domain.Repositories;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace FinCashly.Application.Categories.Commands.CreateCategory;
 
@@ -9,11 +10,13 @@ public class CreateCategoryHandler : IRequestHandler<CreateCategoryCommand, Guid
 {
      private readonly IUnitOfWork _uow;
     private readonly IMapper _mapper;
+    private readonly ILogger<CreateCategoryHandler> _logger;
 
-    public CreateCategoryHandler(IUnitOfWork unitOfWork, IMapper mapper)
+    public CreateCategoryHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<CreateCategoryHandler> logger)
     {
         _uow = unitOfWork;
         _mapper = mapper;
+        _logger = logger;
     }
 
     public async Task<Guid> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
@@ -32,7 +35,8 @@ public class CreateCategoryHandler : IRequestHandler<CreateCategoryCommand, Guid
         catch(Exception ex)
         {
             await _uow.RollbackTransactionAsync();
-            throw new Exception(ex.Message);
+            _logger.LogError(ex, "Erro ao criar uma nova categoria {Name}", request.Payload.Name);
+            throw;
         }
     }
 };

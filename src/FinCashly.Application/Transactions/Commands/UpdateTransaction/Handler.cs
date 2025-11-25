@@ -1,15 +1,19 @@
 using FinCashly.Domain.Enums;
+using FinCashly.Domain.Exceptions;
 using FinCashly.Domain.Repositories;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace FinCashly.Application.Transactions.Commands.UpdateTransaction;
 
 public class UpdateTransactionHandler : IRequestHandler<UpdateTransactionCommand, bool>
 {
     private readonly IUnitOfWork _uow;
-    public UpdateTransactionHandler(IUnitOfWork unitOfWork)
+    private readonly ILogger<UpdateTransactionHandler> _logger;
+    public UpdateTransactionHandler(IUnitOfWork unitOfWork, ILogger<UpdateTransactionHandler> logger)
     {
         _uow =  unitOfWork; 
+        _logger = logger;
     }
     public async Task<bool> Handle(UpdateTransactionCommand request, CancellationToken cancellationToken)
     {
@@ -17,7 +21,7 @@ public class UpdateTransactionHandler : IRequestHandler<UpdateTransactionCommand
         {
             await _uow.BeginTransactionAsync();
             var transaction = await _uow.Transactions.GetByIdAsync(request.Id)
-                ?? throw new Exception("Transação não encontrada");
+                ?? throw new NotFoundException("Transação não encontrada");
 
             UpdateTransactionDto model = request.Payload; 
             
@@ -36,7 +40,7 @@ public class UpdateTransactionHandler : IRequestHandler<UpdateTransactionCommand
             {
                 if (await _uow.Categories.GetByIdAsync((Guid)model.CategoryId) is null)
                 {
-                    throw new Exception("Categoria informada não encontrada");
+                    throw new NotFoundException("Categoria informada não encontrada");
                 }
 
                 transaction.CategoryId = model.CategoryId;
@@ -49,7 +53,8 @@ public class UpdateTransactionHandler : IRequestHandler<UpdateTransactionCommand
         catch (Exception ex)
         {
             await _uow.RollbackTransactionAsync();
-            throw new Exception(ex.Message);
+            _logger.LogError(ex, "Erro ao atualizar uma transação exisitente {TransactionId}", request.Id);
+            throw;
         }
     }
 }

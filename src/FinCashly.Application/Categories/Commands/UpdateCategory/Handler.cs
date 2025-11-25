@@ -1,15 +1,19 @@
 using FinCashly.Domain.Enums;
+using FinCashly.Domain.Exceptions;
 using FinCashly.Domain.Repositories;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace FinCashly.Application.Categories.Commands.UpdateCategory;
 
 public class UpdateCategoryHandler : IRequestHandler<UpdateCategoryCommand, bool>
 {
     private readonly IUnitOfWork _uow;
-    public UpdateCategoryHandler(IUnitOfWork unitOfWork)
+    private readonly ILogger<UpdateCategoryHandler> _logger;
+    public UpdateCategoryHandler(IUnitOfWork unitOfWork, ILogger<UpdateCategoryHandler> logger)
     {
         _uow =  unitOfWork; 
+        _logger = logger;
     }
     public async Task<bool> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
     {
@@ -17,7 +21,7 @@ public class UpdateCategoryHandler : IRequestHandler<UpdateCategoryCommand, bool
         {
             await _uow.BeginTransactionAsync();
             var category = await _uow.Categories.GetByIdAsync(request.Id)
-                ?? throw new Exception("Transação não encontrada");
+                ?? throw new NotFoundException("Transação não encontrada");
 
             UpdateCategoryDto model = request.Payload; 
             
@@ -37,7 +41,8 @@ public class UpdateCategoryHandler : IRequestHandler<UpdateCategoryCommand, bool
         catch (Exception ex)
         {
             await _uow.RollbackTransactionAsync();
-            throw new Exception(ex.Message);
+            _logger.LogError(ex, "Erro ao atualizar uma categoria existente {CategpryId}", request.Id);
+            throw;
         }
     }
 }

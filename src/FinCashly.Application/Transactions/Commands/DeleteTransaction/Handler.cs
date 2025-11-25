@@ -1,14 +1,18 @@
+using FinCashly.Domain.Exceptions;
 using FinCashly.Domain.Repositories;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace FinCashly.Application.Transactions.Commands.DeleteTransaction;
 
 public class DeleteTransactionHandler : IRequestHandler<DeleteTransactionCommand, bool>
 {
     private readonly IUnitOfWork _uow; 
-    public DeleteTransactionHandler(IUnitOfWork unitOfWork)
+    private readonly ILogger<DeleteTransactionHandler> _logger; 
+    public DeleteTransactionHandler(IUnitOfWork unitOfWork, ILogger<DeleteTransactionHandler> logger)
     {
         _uow = unitOfWork;
+        _logger = logger;
     }
 
     public async Task<bool> Handle(DeleteTransactionCommand request, CancellationToken cancellationToken)
@@ -16,7 +20,7 @@ public class DeleteTransactionHandler : IRequestHandler<DeleteTransactionCommand
         try
         {
             var transaction = await _uow.Transactions.GetByIdAsync(request.Id)
-                ?? throw new Exception("Transação não encontrada");
+                ?? throw new NotFoundException("Transação não encontrada");
 
             await _uow.Transactions.DeleteAsync(transaction);
             await _uow.SaveChangesAsync();
@@ -24,7 +28,8 @@ public class DeleteTransactionHandler : IRequestHandler<DeleteTransactionCommand
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            _logger.LogError(ex, "Erro ao excluir uma transação existente {TransactionId}", request.Id);
+            throw;
         }
     }
 }
