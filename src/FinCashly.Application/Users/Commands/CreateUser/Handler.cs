@@ -2,6 +2,7 @@ using AutoMapper;
 using FinCashly.Domain.Entities;
 using FinCashly.Domain.Repositories;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace FinCashly.Application.Users.Commands.CreateUser;
 #nullable disable
@@ -9,11 +10,14 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Guid>
 {
     private readonly IUnitOfWork _uow;
     private readonly IMapper _mapper;
+    private readonly ILogger<CreateUserHandler> _logger;
 
-    public CreateUserHandler(IUnitOfWork unitOfWork, IMapper mapper)
+
+    public CreateUserHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<CreateUserHandler> logger)
     {
         _uow = unitOfWork;
         _mapper = mapper;
+        _logger = logger;
     }
 
     public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -22,7 +26,7 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Guid>
         {
             var payload = request.Payload;
             User user = _mapper.Map<User>(payload);
-            
+
             await _uow.BeginTransactionAsync();
 
             await _uow.Users.AddAsync(user);
@@ -46,10 +50,11 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Guid>
             await _uow.CommitTransactionAsync();
             return user.Id;
         }
-        catch (Exception exception)
+        catch (Exception ex)
         {
             await _uow.RollbackTransactionAsync();
-            throw new Exception($"Erro ao criar o usuário: {exception.Message}");
+            _logger.LogError(ex, "Erro ao criar o usuário {Name}", request.Payload.Name);
+            throw;
         }
     }
 }

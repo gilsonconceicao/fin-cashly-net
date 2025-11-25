@@ -1,7 +1,9 @@
 using AutoMapper;
 using FinCashly.Domain.Entities;
+using FinCashly.Domain.Exceptions;
 using FinCashly.Domain.Repositories;
 using MediatR;
+using Microsoft.Extensions.Logging;
 #nullable disable
 
 namespace FinCashly.Application.Users.Commands.UpdateUser;
@@ -9,11 +11,13 @@ public class UpdateUserHandler : IRequestHandler<UpdateUserCommand, Guid>
 {
     private readonly IUnitOfWork _uow;
     private readonly IMapper _mapper;
+    private readonly ILogger<UpdateUserHandler> _logger;
 
-    public UpdateUserHandler(IUnitOfWork unitOfWork, IMapper mapper)
+    public UpdateUserHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<UpdateUserHandler> logger)
     {
         _uow = unitOfWork;
         _mapper = mapper;
+        _logger = logger;
     }
 
     public async Task<Guid> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
@@ -24,7 +28,7 @@ public class UpdateUserHandler : IRequestHandler<UpdateUserCommand, Guid>
 
             if (user == null)
             {
-                throw new Exception("Usuário não encontrado");
+                throw new NotFoundException("Usuário não encontrado");
             }
             
             var payload = request.Payload;
@@ -40,9 +44,10 @@ public class UpdateUserHandler : IRequestHandler<UpdateUserCommand, Guid>
             await _uow.SaveChangesAsync();
             return user.Id;
         }
-        catch (Exception exception)
+        catch (Exception ex)
         {
-            throw new Exception($"Erro ao criar o usuário: {exception.Message}");
+            _logger.LogError(ex, "Erro ao atualizar um usuário existente {userId}", request.Id);
+            throw;
         }
     }
 }

@@ -43,7 +43,10 @@ public class Startup
         });
 
 
-        services.AddControllers();
+        services.AddControllers(opt =>
+        {
+            opt.Filters.Add<CustomExceptionFilter>();
+        });
 
         // var postgreSql = GetPostgreSql(services);
         var logger = GetLogger(services);
@@ -54,7 +57,7 @@ public class Startup
         }
         catch (Exception ex)
         {
-            logger.LogCritical(ex, "Error on migration");
+            logger.LogCritical(ex, "Error on migration (Não foi possível concluir a migração do DB)");
             Console.WriteLine("Não foi possível concluir a migração do DB." + ex.ToString());
             throw;
         }
