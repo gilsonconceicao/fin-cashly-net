@@ -11,6 +11,7 @@ public static class Repositories
         services.AddScoped<IAccountRepository, AccountRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<ITransactionsRepository, TransactionRepository>();
+        services.AddScoped<IGoalRepository, GoalRepository>();
         return services;
     }
 

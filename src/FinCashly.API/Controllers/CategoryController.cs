@@ -3,6 +3,7 @@ using FinCashly.Application.Categories.Commands.CreateCategory;
 using FinCashly.Application.Categories.Commands.DeleteCategory;
 using FinCashly.Application.Categories.Commands.UpdateCategory;
 using FinCashly.Application.Categories.Queries.GetCategoryList;
+using FinCashly.Domain.Common;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,16 +18,16 @@ public class CategoryController : BaseController
 
     /// <summary>
     /// Obtém todas as categorias.
+    /// </summary>
     /// <remarks>
     /// Exemplo de requisição:
     ///
     ///     GET /api/category?page=0&amp;size=10
     ///
     /// </remarks>
-    /// </summary>
     [HttpGet]
-    [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetListPaginated([FromQuery] GetCategoryQuery query)
+    [ProducesResponseType<Paginated<GetCategoryPaginatedDto>>(StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetListPaginated([FromQuery] GetCategoryPaginatedQuery query)
     {
         return Ok(await _mediator.Send(query));
     }
