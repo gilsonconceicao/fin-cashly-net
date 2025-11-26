@@ -1,5 +1,5 @@
 
-namespace FinCashly.Application.Goals.Queries.GetGoalList;
+namespace FinCashly.Application.Goals.Queries.GetGoal;
 
 public class GetGoalDto
 {

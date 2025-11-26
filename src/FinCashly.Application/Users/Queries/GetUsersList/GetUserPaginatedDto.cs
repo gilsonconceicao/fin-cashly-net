@@ -1,6 +1,6 @@
 using FinCashly.Application.Accounts.Queries.GetAccounts;
 using FinCashly.Application.Common.DTOs;
-using FinCashly.Application.Goals.Queries.GetGoalList;
+using FinCashly.Application.Goals.Queries.GetGoal;
 #nullable disable
 namespace FinCashly.Application.Users.Queries.GetUsersList;
 public class GetUserPaginatedDto : EntityBaseDto

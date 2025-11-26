@@ -5,15 +5,15 @@ public class UpdateGoalDto
     /// <summary>
     /// Título do objetivo
     /// </summary>
-    public string Title { get; set; } = string.Empty;
+    public string? Title { get; set; } = null;
     
     /// <summary>
     /// Valor no qual almeija alcançar
     /// </summary>
-    public decimal TargetAmount { get; set; }
+    public decimal? TargetAmount { get; set; } = null;
     
     /// <summary>
     /// Saldo atual no momento onde foi definido o obejtivo
     /// </summary>
-    public decimal CurrentAmount { get; set; } = 0;
+    public decimal? CurrentAmount { get; set; } = null;
 }

@@ -15,7 +15,7 @@ namespace FinCashly.Application.Categories.Queries.GetCategoryList
                 .ForMember(dest => dest.Goals, opt => opt.MapFrom(src => src.Goals))
                 .ForMember(dest => dest.TypeDisplay, opt => opt.MapFrom(src => src.Type.GetDescription()));
 
-            CreateMap<Paginated<Transaction>, Paginated<GetCategoryPaginatedDto>>()
+            CreateMap<Paginated<Category>, Paginated<GetCategoryPaginatedDto>>()
                 .ForMember(dest => dest.Data, opt => opt.MapFrom(src => src.Data));
         }
     }

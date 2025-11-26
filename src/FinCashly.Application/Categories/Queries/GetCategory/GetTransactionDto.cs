@@ -1,4 +1,4 @@
-using FinCashly.Application.Goals.Queries.GetGoalList;
+using FinCashly.Application.Goals.Queries.GetGoal;
 using FinCashly.Application.Transactions.Queries.GetTransaction;
 using FinCashly.Domain.Enums;
 
