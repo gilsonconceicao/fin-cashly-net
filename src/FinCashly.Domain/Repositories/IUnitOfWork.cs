@@ -6,6 +6,7 @@ public interface IUnitOfWork
     IAccountRepository Accounts { get; }
     ITransactionsRepository Transactions { get; }
     ICategoryRepository Categories { get; }
+    IGoalRepository Goals { get; }
     Task BeginTransactionAsync();
     Task CommitTransactionAsync();
     Task RollbackTransactionAsync();
