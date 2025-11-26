@@ -1,4 +1,3 @@
-using Api.Controllers;
 using FinCashly.Application.Categories.Commands.CreateCategory;
 using FinCashly.Application.Categories.Commands.DeleteCategory;
 using FinCashly.Application.Categories.Commands.UpdateCategory;
@@ -12,7 +11,7 @@ namespace FinCashly.API.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 [Tags("Categories")]
-public class CategoryController : BaseController
+public class CategoryController : BasePublicController
 {
     public CategoryController(IMediator mediator) : base(mediator) { }
 
