@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace FinCashly.Application.Categories.Queries.GetCategoryList;
 
-public class GetCategoryListHandler : IRequestHandler<GetCategoryQuery, Paginated<GetCategoryPaginatedDto>>
+public class GetCategoryListHandler : IRequestHandler<GetCategoryPaginatedQuery, Paginated<GetCategoryPaginatedDto>>
 {
     private readonly IUnitOfWork _uow;
     private readonly IMapper _mapper;
@@ -19,7 +19,7 @@ public class GetCategoryListHandler : IRequestHandler<GetCategoryQuery, Paginate
         _logger = logger;
     }
 
-    public async Task<Paginated<GetCategoryPaginatedDto>> Handle(GetCategoryQuery request, CancellationToken cancellationToken)
+    public async Task<Paginated<GetCategoryPaginatedDto>> Handle(GetCategoryPaginatedQuery request, CancellationToken cancellationToken)
     {
          try
         {

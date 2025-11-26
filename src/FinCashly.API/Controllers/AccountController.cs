@@ -3,6 +3,7 @@ using FinCashly.Application.Accounts.Commands.CreateAccount;
 using FinCashly.Application.Accounts.Commands.DeleteAccount;
 using FinCashly.Application.Accounts.Commands.UpdateAccount;
 using FinCashly.Application.Accounts.Queries.GetAccountsList;
+using FinCashly.Domain.Common;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,7 +28,7 @@ namespace FinCashly.API.Controllers
         ///
         /// </remarks>
         [HttpGet]
-        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType<Paginated<GetAccountsListDto>>(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAccounts([FromQuery] GetAccountsListQuery query)
         {
             return Ok(await _mediator.Send(query));

@@ -3,6 +3,7 @@ using FinCashly.Application.Transactions.Commands.CreateTransaction;
 using FinCashly.Application.Transactions.Commands.DeleteTransaction;
 using FinCashly.Application.Transactions.Commands.UpdateTransaction;
 using FinCashly.Application.Transactions.Queries.GetTransactionList;
+using FinCashly.Domain.Common;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,15 +18,15 @@ public class TransactionController : BaseController
 
     /// <summary>
     /// Obtém uma lista paginada de transações.
+    /// </summary>
     /// <remarks>
     /// Exemplo de requisição:
     ///
     ///     GET /api/transaction?page=0&amp;size=10
     ///
     /// </remarks>
-    /// </summary>
     [HttpGet]
-    [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+    [ProducesResponseType<Paginated<GetTransactionPaginatedDto>>(StatusCodes.Status200OK)]
     public async Task<IActionResult> GetListPaginated([FromQuery] GetTransactionListQuery query)
     {
         return Ok(await _mediator.Send(query));

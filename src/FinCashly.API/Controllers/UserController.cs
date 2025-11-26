@@ -3,6 +3,7 @@ using FinCashly.Application.Users.Commands.CreateUser;
 using FinCashly.Application.Users.Commands.DeleteUser;
 using FinCashly.Application.Users.Commands.UpdateUser;
 using FinCashly.Application.Users.Queries.GetUsersList;
+using FinCashly.Domain.Common;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,15 +18,15 @@ namespace FinCashly.API.Controllers
 
         /// <summary>
         /// Obtém uma lista paginada de usuários.
+        /// </summary>
         /// <remarks>
         /// Exemplo de requisição:
         ///
         ///     GET /api/user?page=0&amp;size=10
         ///
         /// </remarks>
-        /// </summary>
         [HttpGet]
-        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType<Paginated<GetUserPaginatedDto>>(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetUsers([FromQuery] GetUsersListQuery query)
         {
             return Ok(await _mediator.Send(query));

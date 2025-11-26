@@ -3,6 +3,6 @@ using FinCashly.Domain.Common;
 using MediatR;
 
 namespace FinCashly.Application.Categories.Queries.GetCategoryList; 
-public class GetCategoryQuery : QueryParamsQuery, IRequest<Paginated<GetCategoryPaginatedDto>>
+public class GetCategoryPaginatedQuery : QueryParamsQuery, IRequest<Paginated<GetCategoryPaginatedDto>>
 {
 } 

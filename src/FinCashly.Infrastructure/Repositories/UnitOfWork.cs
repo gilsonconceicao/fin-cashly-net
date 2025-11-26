@@ -15,6 +15,7 @@ public class UnitOfWork : IUnitOfWork
     ITransactionsRepository? _transactionRepository;
     IAccountRepository? _accountRepository;
     ICategoryRepository? _categoryRepository;
+    IGoalRepository? _goalRepository;
 
     public UnitOfWork(ApplicationDbContext context)
     {
@@ -25,6 +26,7 @@ public class UnitOfWork : IUnitOfWork
     public ITransactionsRepository Transactions => _transactionRepository ??= new TransactionRepository(_context);
     public IAccountRepository Accounts => _accountRepository ??= new AccountRepository(_context);
     public ICategoryRepository Categories => _categoryRepository ??= new CategoryRepository(_context);
+    public IGoalRepository Goals => _goalRepository ??= new GoalRepository(_context);
 
     public async Task BeginTransactionAsync()
     {

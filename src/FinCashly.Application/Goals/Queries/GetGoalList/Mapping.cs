@@ -1,13 +1,17 @@
 using AutoMapper;
-using FinCashly.Application.Goals.Queries.GetGoalList;
+using FinCashly.Domain.Common;
 using FinCashly.Domain.Entities;
 
-namespace FinCashly.Application.Goals.Commands.CreateAccount;
-
-public class GetGoalMappings : Profile
+namespace FinCashly.Application.Goals.Queries.GetGoalList
 {
-    public GetGoalMappings()
+    public class GetGoalsPaginatedMappings : Profile
     {
-        CreateMap<Goal, GetGoalDto>();
+        public GetGoalsPaginatedMappings()
+        {
+            CreateMap<Goal, GetGoalPaginatedDto>();
+
+            CreateMap<Paginated<Goal>, Paginated<GetGoalPaginatedDto>>()
+                .ForMember(dest => dest.Data, opt => opt.MapFrom(src => src.Data));
+        }
     }
 }

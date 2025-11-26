@@ -5,6 +5,10 @@ using FinCashly.Application.Accounts.Queries.GetAccountsList;
 using FinCashly.Application.Categories.Commands.CreateCategory;
 using FinCashly.Application.Categories.Commands.DeleteCategory;
 using FinCashly.Application.Categories.Commands.UpdateCategory;
+using FinCashly.Application.Categories.Queries.GetCategoryList;
+using FinCashly.Application.Goals.Commands.CreateGoal;
+using FinCashly.Application.Goals.Commands.UpdateGoal;
+using FinCashly.Application.Goals.Queries.GetGoalList;
 using FinCashly.Application.Transactions.Commands.CreateTransaction;
 using FinCashly.Application.Transactions.Commands.DeleteTransaction;
 using FinCashly.Application.Transactions.Commands.UpdateTransaction;
@@ -43,10 +47,16 @@ public static class Mediators
         #endregion
 
         #region Categories
-        // services.AddTransient<IRequestHandler<GetTransactionListQuery, Paginated<GetTransactionPaginatedDto>>, GetTransactionListHandler>();
+        services.AddTransient<IRequestHandler<GetCategoryPaginatedQuery, Paginated<GetCategoryPaginatedDto>>, GetCategoryListHandler>();
         services.AddTransient<IRequestHandler<CreateCategoryCommand, Guid>, CreateCategoryHandler>();
         services.AddTransient<IRequestHandler<DeleteCategoryCommand, bool>, DeleteCategoryHandler>();
         services.AddTransient<IRequestHandler<UpdateCategoryCommand, bool>, UpdateCategoryHandler>();
+        #endregion
+
+        #region Goals
+        services.AddTransient<IRequestHandler<GetGoalPaginatedListQuery, Paginated<GetGoalPaginatedDto>>, GetGoalListHandler>();
+        services.AddTransient<IRequestHandler<CreateGoalCommand, Guid>, CreateGoalHandler>();
+        services.AddTransient<IRequestHandler<UpdateGoalCommand, bool>, UpdateGoalHandler>();
         #endregion
         return services;
     }
