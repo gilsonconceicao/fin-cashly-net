@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using FinCashly.Application.Common.Interfaces;
 
 namespace FinCashly.API.Services;
@@ -19,4 +20,8 @@ public class CurrentUserService : ICurrentUserService
 
     public bool IsAuthenticated =>
         _httpContextAccessor.HttpContext?.User?.Identity?.IsAuthenticated ?? false;
+    public IEnumerable<string> Roles =>
+        _httpContextAccessor.HttpContext?.User?.Claims
+            .Where(c => c.Type == ClaimTypes.Role)
+            .Select(c => c.Value);
 }

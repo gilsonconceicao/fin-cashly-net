@@ -48,6 +48,13 @@ public class FirebaseAuthHandler : AuthenticationHandler<AuthenticationSchemeOpt
                 claims.Add(new Claim(ClaimTypes.Role, role.ToString()));
             }
 
+            if (decodedToken.Claims.TryGetValue("roles", out var rolesObj))
+            {
+                var roles = (rolesObj as IEnumerable<object>);
+                foreach (var r in roles)
+                    claims.Add(new Claim(ClaimTypes.Role, r.ToString()));
+            }
+
             var identity = new ClaimsIdentity(claims, nameof(FirebaseAuthHandler));
             var principal = new ClaimsPrincipal(identity);
             var ticket = new AuthenticationTicket(principal, Scheme.Name);

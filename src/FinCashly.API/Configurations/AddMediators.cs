@@ -15,6 +15,7 @@ using FinCashly.Application.Transactions.Commands.UpdateTransaction;
 using FinCashly.Application.Transactions.Queries.GetTransactionList;
 using FinCashly.Application.Users.Commands.CreateUser;
 using FinCashly.Application.Users.Commands.DeleteUser;
+using FinCashly.Application.Users.Commands.SetUserRole;
 using FinCashly.Application.Users.Commands.UpdateUser;
 using FinCashly.Application.Users.Queries.GetUsersList;
 using FinCashly.Domain.Common;
@@ -30,6 +31,7 @@ public static class Mediators
         services.AddTransient<IRequestHandler<CreateUserCommand, Guid>, CreateUserHandler>();
         services.AddTransient<IRequestHandler<DeleteUserCommand, bool>, DeleteUserHandler>();
         services.AddTransient<IRequestHandler<UpdateUserCommand, Guid>, UpdateUserHandler>();
+        services.AddTransient<IRequestHandler<SetUserRoleCommand, bool>, SetUserRoleHandler>();
         #endregion
 
         #region Accounts
