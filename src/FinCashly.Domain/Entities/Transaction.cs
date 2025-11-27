@@ -4,7 +4,7 @@ using FinCashly.Domain.Enums;
 
 namespace FinCashly.Domain.Entities;
 
-public class Transaction : EntityBase
+public class Transaction : AuditableEntity
 {
 
     [Required]

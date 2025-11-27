@@ -4,7 +4,7 @@ using FinCashly.Domain.Enums;
 
 namespace FinCashly.Domain.Entities;
 
-public class Account : EntityBase
+public class Account : AuditableEntity
 {
     [Required]
     public Guid UserId { get; set; }

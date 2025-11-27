@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FinCashly.Infrastructure\FinCashly.Infrastructure.csproj" />
     <ProjectReference Include="..\FinCashly.Domain\FinCashly.Domain.csproj" />
   </ItemGroup>
 

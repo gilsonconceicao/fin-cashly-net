@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 namespace FinCashly.Domain.Entities;
 
-public class User : EntityBase
+public class User : AuditableEntity
 {
     [Required, MaxLength(150)]
     public string Name { get; set; } = string.Empty;

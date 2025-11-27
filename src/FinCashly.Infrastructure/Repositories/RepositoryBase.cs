@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FinCashly.Infrastructure.Repositories;
 
-public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : EntityBase
+public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : AuditableEntity
 {
     protected readonly ApplicationDbContext DbContext;
 
