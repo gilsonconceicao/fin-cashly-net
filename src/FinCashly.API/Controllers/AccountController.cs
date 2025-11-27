@@ -1,4 +1,3 @@
-using Api.Controllers;
 using FinCashly.Application.Accounts.Commands.CreateAccount;
 using FinCashly.Application.Accounts.Commands.DeleteAccount;
 using FinCashly.Application.Accounts.Commands.UpdateAccount;
@@ -12,7 +11,7 @@ namespace FinCashly.API.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Tags("Accounts")]
-    public class AccountController : BaseController
+    public class AccountController : BasePrivateController
     {
         public AccountController(IMediator mediator) : base(mediator)
         {

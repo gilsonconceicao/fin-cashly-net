@@ -1,4 +1,3 @@
-using Api.Controllers;
 using FinCashly.Application.Goals.Commands.CreateGoal;
 using FinCashly.Application.Goals.Commands.DeleteGoal;
 using FinCashly.Application.Goals.Commands.UpdateGoal;
@@ -12,7 +11,7 @@ namespace FinCashly.API.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 [Tags("Goals")]
-public class GoalController : BaseController
+public class GoalController : BasePublicController
 {
     public GoalController(IMediator mediator) : base(mediator) { }
 

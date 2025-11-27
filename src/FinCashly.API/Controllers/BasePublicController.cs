@@ -2,15 +2,15 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Controllers;
+namespace FinCashly.API.Controllers;
 
 [ApiController]
 [Route("api/[Controller]")]
-public class BaseController : ControllerBase
+public class BasePublicController : ControllerBase
 {
     protected readonly IMediator _mediator;
 
-    public BaseController(IMediator mediator)
+    public BasePublicController(IMediator mediator)
     {
         _mediator = mediator;
     }

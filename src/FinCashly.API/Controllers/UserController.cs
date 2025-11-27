@@ -1,4 +1,3 @@
-using Api.Controllers;
 using FinCashly.Application.Users.Commands.CreateUser;
 using FinCashly.Application.Users.Commands.DeleteUser;
 using FinCashly.Application.Users.Commands.UpdateUser;
@@ -12,7 +11,7 @@ namespace FinCashly.API.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Tags("Users")]
-    public class UserController : BaseController
+    public class UserController : BasePublicController
     {
         public UserController(IMediator mediator) : base(mediator) { }
 

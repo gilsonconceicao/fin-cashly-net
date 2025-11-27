@@ -1,4 +1,3 @@
-using Api.Controllers;
 using FinCashly.Application.Transactions.Commands.CreateTransaction;
 using FinCashly.Application.Transactions.Commands.DeleteTransaction;
 using FinCashly.Application.Transactions.Commands.UpdateTransaction;
@@ -12,7 +11,7 @@ namespace FinCashly.API.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 [Tags("Transactions")]
-public class TransactionController : BaseController
+public class TransactionController : BasePublicController
 {
     public TransactionController(IMediator mediator) : base(mediator) { }
 

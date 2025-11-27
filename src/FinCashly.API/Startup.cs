@@ -14,33 +14,17 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        string connectionString = _configuration.GetConnectionString("DefaultConnection")!;
         services.AddEndpointsApiExplorer();
         services.AddDependencyInjections();
-        services.ConnectionWithDataBase(connectionString);
+        services.AddSwaggerSetting(); 
+        services.ConnectionWithDataBase(_configuration);
+        services.AddAuthorizationFirebase(_configuration);
         services.EnableFluentValidations();
         services.AddMediators();
         services.AddRepositories();
+        services.AddHttpContextAccessor(); 
 
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-        services.AddSwaggerGen(options =>
-        {
-            options.SwaggerDoc("v1", new OpenApiInfo
-            {
-                Version = "v1",
-                Title = "Fin Cashly",
-                Description = "Management your transactions",
-            });
-            options.SchemaFilter<SchemeFilterSwashbuckle>();
-
-            var xmlFiles = Directory.GetFiles(AppContext.BaseDirectory, "*.xml", SearchOption.TopDirectoryOnly);
-
-            foreach (var xmlFile in xmlFiles)
-            {
-                options.IncludeXmlComments(xmlFile, includeControllerXmlComments: true);
-            }
-        });
 
 
         services.AddControllers(opt =>
