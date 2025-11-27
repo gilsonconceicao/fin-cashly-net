@@ -8,12 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 [Route("api/admin/auth")]
 public class AuthAdminController : BasePrivateController
 {
-
     public AuthAdminController(IMediator mediator) : base(mediator) { }
 
-
-    [Authorize(Roles = "Admin")]
     [HttpPost("set-role")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public async Task<IActionResult> SetRole([FromBody] SetUserRoleCommand command)
     {
         await _mediator.Send(command);

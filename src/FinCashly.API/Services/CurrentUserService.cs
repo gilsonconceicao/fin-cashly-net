@@ -13,10 +13,10 @@ public class CurrentUserService : ICurrentUserService
     }
 
     public string UserId =>
-        _httpContextAccessor.HttpContext?.User?.FindFirst("user_id")?.Value;
+        _httpContextAccessor.HttpContext?.User.Claims?.FirstOrDefault(c => c.Type == "uid").Value;
 
     public string Email =>
-        _httpContextAccessor.HttpContext?.User?.FindFirst("email")?.Value;
+        _httpContextAccessor.HttpContext?.User.Claims?.FirstOrDefault(c => c.Type == "email").Value;
 
     public bool IsAuthenticated =>
         _httpContextAccessor.HttpContext?.User?.Identity?.IsAuthenticated ?? false;
