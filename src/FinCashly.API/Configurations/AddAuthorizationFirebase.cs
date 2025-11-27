@@ -1,6 +1,7 @@
 using FinCashly.API.Auth;
 using FinCashly.API.Services;
 using FinCashly.Application.Common.Interfaces;
+using FinCashly.Infrastructure.Firebase;
 using FinCashly.Infrastructure.Settings;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -12,6 +13,7 @@ public static class Auth
     {
 
         services.AddScoped<ICurrentUserService, CurrentUserService>();
+        services.AddScoped<IFirebaseUserAdminService, FirebaseUserAdminService>();
         services.AddSingleton<FirebaseConnectService>();
         
         var firebaseconnect = new FirebaseConnectService(configuration);

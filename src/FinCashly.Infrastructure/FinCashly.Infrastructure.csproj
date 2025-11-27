@@ -10,10 +10,12 @@
   <ItemGroup>
     <PackageReference Include="Npgsql" Version="9.0.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+    <PackageReference Include="FirebaseAdmin" Version="3.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\FinCashly.Domain\FinCashly.Domain.csproj" />
+    <ProjectReference Include="..\FinCashly.Application\FinCashly.Application.csproj" />
   </ItemGroup>
 
 </Project>

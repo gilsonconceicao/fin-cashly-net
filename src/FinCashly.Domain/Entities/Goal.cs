@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FinCashly.Domain.Entities;
 
-public class Goal : EntityBase
+public class Goal : AuditableEntity
 {
 
     [Required]

@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using FinCashly.Domain.Common.Interfaces;
 
 namespace FinCashly.Domain.Entities;
 
-public class EntityBase
+public class AuditableEntity : IAuditableEntity
 {
     [Key]
     public Guid Id { get; set; } = Guid.NewGuid();

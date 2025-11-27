@@ -1,5 +1,6 @@
 
 using System.Reflection;
+using FinCashly.Application.Common.Interfaces;
 using FinCashly.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -8,8 +9,11 @@ namespace FinCashly.Infrastructure.DataBase;
 
 public class ApplicationDbContext : DbContext
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    private readonly ICurrentUserService _currentUser;
+
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ICurrentUserService currentUserService) : base(options)
     {
+        _currentUser = currentUserService;
     }
 
     public DbSet<User> Users { get; set; }
@@ -23,7 +27,7 @@ public class ApplicationDbContext : DbContext
         base.OnModelCreating(builder);
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
-    
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.AddInterceptors(new UtcDateInterceptor());
@@ -43,7 +47,7 @@ public class ApplicationDbContext : DbContext
 
     private void ApplyEntityBaseBehavior()
     {
-        var entries = ChangeTracker.Entries<EntityBase>();
+        var entries = ChangeTracker.Entries<AuditableEntity>();
 
         foreach (var entry in entries)
         {
@@ -52,6 +56,10 @@ public class ApplicationDbContext : DbContext
                 case EntityState.Added:
                     entry.Entity.CreatedAt = DateTime.UtcNow;
                     entry.Entity.UpdatedAt = DateTime.UtcNow;
+                    if (_currentUser.UserId != null && !string.IsNullOrEmpty(_currentUser.UserId))
+                    {
+                        entry.Entity.CreatedById = _currentUser.UserId;
+                    }
                     break;
 
                 case EntityState.Modified:

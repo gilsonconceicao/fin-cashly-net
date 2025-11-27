@@ -3,7 +3,7 @@ using FinCashly.Domain.Enums;
 
 namespace FinCashly.Domain.Entities;
 
-public class Category : EntityBase
+public class Category : AuditableEntity
 {
 
     [Required, MaxLength(100)]
