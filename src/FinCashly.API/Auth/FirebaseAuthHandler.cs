@@ -48,11 +48,12 @@ public class FirebaseAuthHandler : AuthenticationHandler<AuthenticationSchemeOpt
                 claims.Add(new Claim(ClaimTypes.Role, role.ToString()));
             }
 
-            if (decodedToken.Claims.TryGetValue("roles", out var rolesObj))
+            if (decodedToken.Claims.TryGetValue("permissions", out var permsObj)
+                && permsObj is IEnumerable<object> perms)
             {
-                var roles = (rolesObj as IEnumerable<object>);
-                foreach (var r in roles)
-                    claims.Add(new Claim(ClaimTypes.Role, r.ToString()));
+                claims.AddRange(
+                    perms.Select(p => new Claim("permission", p.ToString()))
+                );
             }
 
             var identity = new ClaimsIdentity(claims, nameof(FirebaseAuthHandler));
