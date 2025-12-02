@@ -11,7 +11,7 @@ namespace FinCashly.API.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 [Tags("Transactions")]
-public class TransactionController : BasePublicController
+public class TransactionController : BasePrivateController
 {
     public TransactionController(IMediator mediator) : base(mediator) { }
 

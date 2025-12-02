@@ -1,6 +1,7 @@
 using AutoMapper;
 using FinCashly.Application.Goals.Queries.GetGoalList;
 using FinCashly.Domain.Common;
+using FinCashly.Domain.Common.interfaces;
 using FinCashly.Domain.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -12,19 +13,21 @@ public class GetGoalListHandler : IRequestHandler<GetGoalPaginatedListQuery, Pag
     private readonly IUnitOfWork _uow;
     private readonly IMapper _mapper;
     private readonly ILogger<GetGoalListHandler> _logger;
+    private readonly ICurrentUserService _currentUserService;
 
-    public GetGoalListHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<GetGoalListHandler> logger)
+    public GetGoalListHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<GetGoalListHandler> logger, ICurrentUserService currentUserService)
     {
         _uow = unitOfWork;
         _mapper = mapper;
         _logger = logger;
+        _currentUserService = currentUserService;
     }
 
     public async Task<Paginated<GetGoalPaginatedDto>> Handle(GetGoalPaginatedListQuery request, CancellationToken cancellationToken)
     {
          try
         {
-            var list = await _uow.Goals.GetGoalsPaginatedList(request.Page, request.Size);
+            var list = await _uow.Goals.GetGoalsPaginatedList(_currentUserService, request.Page, request.Size);
             return _mapper.Map<Paginated<GetGoalPaginatedDto>>(list);
         }
         catch (Exception ex)

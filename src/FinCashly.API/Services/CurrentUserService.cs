@@ -1,5 +1,5 @@
 using System.Security.Claims;
-using FinCashly.Application.Common.Interfaces;
+using FinCashly.Domain.Common.interfaces;
 
 namespace FinCashly.API.Services;
 #nullable disable

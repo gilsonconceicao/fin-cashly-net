@@ -11,7 +11,7 @@ namespace FinCashly.API.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 [Tags("Goals")]
-public class GoalController : BasePublicController
+public class GoalController : BasePrivateController
 {
     public GoalController(IMediator mediator) : base(mediator) { }
 
