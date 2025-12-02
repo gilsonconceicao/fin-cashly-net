@@ -1,5 +1,6 @@
 using AutoMapper;
 using FinCashly.Domain.Common;
+using FinCashly.Domain.Common.interfaces;
 using FinCashly.Domain.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -11,19 +12,21 @@ public class GetTransactionListHandler : IRequestHandler<GetTransactionListQuery
     private readonly IUnitOfWork _uow;
     private readonly ILogger<GetTransactionListHandler> _logger;
     private readonly IMapper _mapper;
+    private readonly ICurrentUserService _currentUserService;
 
-    public GetTransactionListHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<GetTransactionListHandler> logger)
+    public GetTransactionListHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<GetTransactionListHandler> logger, ICurrentUserService currentUserService)
     {
         _uow = unitOfWork;
         _mapper = mapper;
         _logger = logger;
+        _currentUserService = currentUserService;
     }
 
     public async Task<Paginated<GetTransactionPaginatedDto>> Handle(GetTransactionListQuery request, CancellationToken cancellationToken)
     {
         try
         {
-            var list = await _uow.Transactions.GetTransactionPaginated(request.Page, request.Size);
+            var list = await _uow.Transactions.GetTransactionPaginated(_currentUserService, request.Page, request.Size);
             return _mapper.Map<Paginated<GetTransactionPaginatedDto>>(list);
         }
         catch (Exception ex)

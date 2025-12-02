@@ -11,7 +11,7 @@ namespace FinCashly.API.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 [Tags("Categories")]
-public class CategoryController : BasePublicController
+public class CategoryController : BasePrivateController
 {
     public CategoryController(IMediator mediator) : base(mediator) { }
 

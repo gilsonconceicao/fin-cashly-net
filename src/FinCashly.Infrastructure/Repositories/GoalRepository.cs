@@ -1,4 +1,5 @@
 using FinCashly.Domain.Common;
+using FinCashly.Domain.Common.interfaces;
 using FinCashly.Domain.Entities;
 using FinCashly.Domain.Repositories;
 using FinCashly.Infrastructure.DataBase;
@@ -12,14 +13,14 @@ public class GoalRepository : RepositoryBase<Goal>, IGoalRepository
     {
     }
 
-    public async Task<Paginated<Goal>> GetGoalsPaginatedList(int page = 0, int size = 5)
+    public async Task<Paginated<Goal>> GetGoalsPaginatedList(ICurrentUserService currentUserService, int page = 0, int size = 5)
     {
         int skipCount = page * size;
         var dataAll = DbContext.Goals;
 
         var data = await dataAll
                         .Include(u => u.User)
-                        .Where(e => e.IsDeleted == false)
+                        .Where(e => e.IsDeleted == false && e.CreatedById == currentUserService.UserId)
                         .OrderBy(e => e.CreatedAt)
                         .Skip(skipCount)
                         .Take(size)

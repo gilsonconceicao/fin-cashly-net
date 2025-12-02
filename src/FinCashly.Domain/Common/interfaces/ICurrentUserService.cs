@@ -1,4 +1,4 @@
-namespace FinCashly.Application.Common.Interfaces;
+namespace FinCashly.Domain.Common.interfaces;
 
 public interface ICurrentUserService
 {

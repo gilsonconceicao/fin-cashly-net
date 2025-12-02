@@ -1,4 +1,3 @@
-using FinCashly.Domain.Common;
 using FinCashly.Domain.Entities;
 using FinCashly.Domain.Repositories;
 using FinCashly.Infrastructure.DataBase;
