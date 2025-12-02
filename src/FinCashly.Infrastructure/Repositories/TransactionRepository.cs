@@ -1,4 +1,5 @@
 using FinCashly.Domain.Common;
+using FinCashly.Domain.Common.interfaces;
 using FinCashly.Domain.Entities;
 using FinCashly.Domain.Repositories;
 using FinCashly.Infrastructure.DataBase;
@@ -12,7 +13,7 @@ public class TransactionRepository : RepositoryBase<Transaction>, ITransactionsR
     {
     }
 
-    public async Task<Paginated<Transaction>> GetTransactionPaginated(int page = 0, int size = 5)
+    public async Task<Paginated<Transaction>> GetTransactionPaginated(ICurrentUserService currentUserService, int page = 0, int size = 5)
     {
         int skipCount = page * size;
 
@@ -21,7 +22,7 @@ public class TransactionRepository : RepositoryBase<Transaction>, ITransactionsR
         var data = await dataAll
                         .Include(u => u.Account)
                         .Include(u => u.Category)
-                        .Where(e => e.IsDeleted == false)
+                        .Where(e => e.IsDeleted == false && e.CreatedById == currentUserService.UserId)
                         .OrderBy(e => e.CreatedAt)
                         .Skip(skipCount)
                         .Take(size)

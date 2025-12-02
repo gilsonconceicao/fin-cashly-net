@@ -1,6 +1,6 @@
 
 using System.Reflection;
-using FinCashly.Application.Common.Interfaces;
+using FinCashly.Domain.Common.interfaces;
 using FinCashly.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
