@@ -4,9 +4,9 @@ namespace FinCashly.Application.Users.Commands.SetUserRole;
 
 public class SetUserRoleHandler : IRequestHandler<SetUserRoleCommand, bool>
 {
-    private readonly IFirebaseUserAdminService _firebase;
+    private readonly IFirebaseService _firebase;
 
-    public SetUserRoleHandler(IFirebaseUserAdminService firebase)
+    public SetUserRoleHandler(IFirebaseService firebase)
     {
         _firebase = firebase;
     }

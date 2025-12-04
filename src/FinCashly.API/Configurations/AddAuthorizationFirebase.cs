@@ -16,7 +16,7 @@ public static class Auth
 
         services.AddScoped<ICurrentUserService, CurrentUserService>();
         services.AddSingleton<IAuthorizationHandler, PermissionHandler>();
-        services.AddScoped<IFirebaseUserAdminService, FirebaseUserAdminService>();
+        services.AddScoped<IFirebaseService, FirebaseService>();
         services.AddSingleton<IAuthorizationMiddlewareResultHandler, CustomAuthorizationResultHandler>();
 
         services.AddSingleton<FirebaseConnectService>();

@@ -4,7 +4,7 @@ using FirebaseAdmin.Auth;
 
 namespace FinCashly.Infrastructure.Firebase;
 
-public class FirebaseUserAdminService : IFirebaseUserAdminService
+public class FirebaseService : IFirebaseService
 {
     public async Task SetRoleAsync(string uid, string role)
     {
@@ -28,5 +28,10 @@ public class FirebaseUserAdminService : IFirebaseUserAdminService
             return roleObj?.ToString();
 
         return null;
+    }
+
+    public Task<UserRecord> GetUserByIdAsync(string uid)
+    {
+        throw new NotImplementedException();
     }
 }
