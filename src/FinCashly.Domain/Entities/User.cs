@@ -13,6 +13,3 @@ public class User : AuditableEntity
     public ICollection<Account> Accounts { get; set; } = new List<Account>();
     public ICollection<Goal> Goals { get; set; } = new List<Goal>();
 }
-
-// to-do: add future firebase user id
-// public string UserAuthId { get; set; } = string.Empty;
