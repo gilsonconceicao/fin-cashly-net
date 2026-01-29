@@ -57,7 +57,7 @@ public class Startup
         app.UseSwaggerUI(c =>
         {
             c.RoutePrefix = "docs";
-            c.SwaggerEndpoint("/docs/v1/docs.json", "FoodAPI");
+            c.SwaggerEndpoint("/docs/v1/docs.json", "FinCashlyAPI");
 
             c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
         });
