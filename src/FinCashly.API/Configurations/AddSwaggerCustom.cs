@@ -12,15 +12,16 @@ public static class Swagger
             options.SwaggerDoc("v1", new OpenApiInfo
             {
                 Version = "v1",
-                Title = "Fin Cashly",
-                Description = "Management your transactions",
+                Title = "FinCashly API",
+                Description = "API REST para gerenciamento financeiro pessoal. Autenticação via Firebase, autorização por roles, arquitetura Clean Architecture + CQRS.",
+
             });
 
             options.SchemaFilter<SchemeFilterSwashbuckle>();
 
             options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
-                Description = "Entre com o token JWT. Exemplo: Bearer {seu token aqui}",
+                Description = "Entre com o token JWT. Exemplo: Bearer {token aqui}",
                 Name = "Authorization",
                 In = ParameterLocation.Header,
                 Type = SecuritySchemeType.Http,
