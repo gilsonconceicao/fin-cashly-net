@@ -7,7 +7,7 @@ namespace FinCashly.API.Controllers;
 
 [Authorize]
 [ApiController]
-[Route("api/[Controller]")]
+[Route("api/v1/[Controller]")]
 public class BasePrivateController : ControllerBase
 {
     protected readonly IMediator _mediator;

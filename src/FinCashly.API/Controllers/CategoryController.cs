@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace FinCashly.API.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
 [Tags("Categories")]
 public class CategoryController : BasePrivateController
 {
@@ -21,7 +20,7 @@ public class CategoryController : BasePrivateController
     /// <remarks>
     /// Exemplo de requisição:
     ///
-    ///     GET /api/category?page=0&amp;size=10
+    ///     GET /api/v1/category?page=0&amp;size=10
     ///
     /// </remarks>
     [HttpGet]

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("api/admin/auth")]
+[Route("api/v1/admin/auth")]
 public class AuthAdminController : BasePrivateController
 {
     public AuthAdminController(IMediator mediator) : base(mediator) { }
