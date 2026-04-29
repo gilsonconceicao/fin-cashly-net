@@ -1,12 +1,12 @@
-# FinCashly API
+FinCashly API
 
-**FinCashly** é uma API REST desenvolvida em **.NET**, voltada para o gerenciamento financeiro pessoal, permitindo controle de **usuários, contas, transações, categorias e metas**, com autenticação via **Firebase**, autorização baseada em **Roles & Permissions**, e arquitetura **Clean Architecture + CQRS**.
+FinCashly is a REST API developed in **.NET**, focused on personal financial management, enabling control of users, accounts, transactions, categories, and goals, with authentication via **Firebase**, authorization based on Roles & Permissions, and an architecture following **Clean Architecture + CQRS.**
 
 ---
 
 ## Arquitetura
 
-O projeto segue os princípios de **Clean Architecture**, garantindo separação de responsabilidades, testabilidade e escalabilidade.
+The project follows **Clean Architecture** principles, ensuring separation of concerns, testability, and scalability.
 
 ```
 src/
