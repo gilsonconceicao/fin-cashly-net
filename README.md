@@ -18,7 +18,7 @@ src/
 
 ---
 
-## Padrões Utilizados
+## Patterns Used
 
 - Clean Architecture  
 - CQRS (Command Query Responsibility Segregation)  
@@ -32,7 +32,7 @@ src/
 - Swagger documentado com XML Comments  
 
 ---
-## Principais Entidades
+## Entities Key
 
 - User  
 - Account  
