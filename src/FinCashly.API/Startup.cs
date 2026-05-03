@@ -1,7 +1,6 @@
 using FinCashly.API.Configurations;
 using FinCashly.API.Extensions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 
 public class Startup
 {
