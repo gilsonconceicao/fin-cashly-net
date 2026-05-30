@@ -12,7 +12,7 @@ public class GetAccountsListHandler : IRequestHandler<GetAccountsListQuery, Pagi
     private readonly IUnitOfWork _uow;
     private readonly IMapper _mapper;
     private readonly ILogger<GetAccountsListHandler> _logger;
-        private readonly ICurrentUserService _currentUserService;
+    private readonly ICurrentUserService _currentUserService;
 
 
     public GetAccountsListHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<GetAccountsListHandler> logger, ICurrentUserService currentUserService)
@@ -27,7 +27,7 @@ public class GetAccountsListHandler : IRequestHandler<GetAccountsListQuery, Pagi
     {
         try
         {
-            var list = await _uow.Accounts.GetAccountsPaginated(_currentUserService, request.Page, request.Size);
+            var list = await _uow.Accounts.GetAccountsPaginated(_currentUserService, request.Page, request.Size, request.ShowAllAccounts, request.ShowInactive);
             return _mapper.Map<Paginated<GetAccountsListDto>>(list);
         }
         catch (Exception ex)

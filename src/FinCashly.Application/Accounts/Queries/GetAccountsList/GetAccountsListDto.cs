@@ -16,11 +16,18 @@ public class GetAccountsListDto : EntityBaseDto
     /// Saldo da conta
     /// </summary>
     public decimal Balance { get; set; } = 0;
-    
+
     /// <summary>
     /// Tipo de conta bancária
     /// </summary>
     public AccountTypeEnum Type { get; set; } = AccountTypeEnum.Checking;
     public string TypeDisplay { get; set; }
-    public List<GetTransactionDto> Transactions {get; set; } = new List<GetTransactionDto>();
+    /// <summary>
+    /// Transações da conta
+    /// </summary>
+    public List<GetTransactionDto> Transactions { get; set; } = new List<GetTransactionDto>();
+    /// <summary>
+    /// Conta esta ativa
+    /// </summary>
+    public bool IsActive { get; set; }
 }
