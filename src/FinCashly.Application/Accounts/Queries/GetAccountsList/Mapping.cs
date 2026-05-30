@@ -11,7 +11,8 @@ namespace FinCashly.Application.Accounts.Queries.GetAccountsList
         {
             CreateMap<Account, GetAccountsListDto>()
                 .ForMember(dest => dest.Transactions, opt => opt.MapFrom(src => src.Transactions))
-                .ForMember(dest => dest.TypeDisplay, opt => opt.MapFrom(src => src.Type.GetDescription()));
+                .ForMember(dest => dest.TypeDisplay, opt => opt.MapFrom(src => src.Type.GetDescription()))
+                .ForMember(dest => dest.IsActive, opt => opt.MapFrom(src => !src.IsDeleted));
                 
             CreateMap<Paginated<Account>, Paginated<GetAccountsListDto>>()
                 .ForMember(dest => dest.Data, opt => opt.MapFrom(src => src.Data));

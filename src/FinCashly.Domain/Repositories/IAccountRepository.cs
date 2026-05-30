@@ -6,5 +6,5 @@ namespace FinCashly.Domain.Repositories;
 
 public interface IAccountRepository : IRepositoryBase<Account>
 {
-        Task<Paginated<Account>> GetAccountsPaginated(ICurrentUserService currentUserService, int Page = 0, int size = 5);
+        Task<Paginated<Account>> GetAccountsPaginated(ICurrentUserService currentUserService, int Page = 0, int size = 5, bool ShowAllAccounts = false, bool ShowInactive = false);
 }

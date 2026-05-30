@@ -18,7 +18,7 @@ namespace FinCashly.API.Controllers
         }
 
         /// <summary>
-        /// Obtém uma lista paginada de contas.
+        /// Obtém as contas do usuário solicitante.
         /// </summary>
         /// <remarks>
         /// Exemplo de requisição:
@@ -28,9 +28,36 @@ namespace FinCashly.API.Controllers
         /// </remarks>
         [HttpGet]
         [ProducesResponseType<Paginated<GetAccountsListDto>>(StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetAccounts([FromQuery] GetAccountsListQuery query)
+        public async Task<IActionResult> GetAccounts([FromQuery] GetAccountsListFiltersDto query)
         {
-            return Ok(await _mediator.Send(query));
+            return Ok(await _mediator.Send(new GetAccountsListQuery
+            {
+                Page = query.Page,
+                Size = query.Size, 
+                ShowAllAccounts = false
+            }));
+        }
+
+        /// <summary>
+        /// Obtém uma lista paginada de todas as contas.
+        /// </summary>
+        /// <remarks>
+        /// Exemplo de requisição:
+        ///
+        ///     GET /api/AllAccount?page=0&amp;size=10
+        ///
+        /// </remarks>
+        [HttpGet("All")]
+        [ProducesResponseType<Paginated<GetAccountsListDto>>(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAllAccounts([FromQuery] GetAccountsListQuery query)
+        {
+            return Ok(await _mediator.Send(new GetAccountsListQuery
+            {
+                Page = query.Page, 
+                Size = query.Size,
+                ShowAllAccounts = true,
+                ShowInactive = query.ShowInactive
+            }));
         }
 
         /// <summary>

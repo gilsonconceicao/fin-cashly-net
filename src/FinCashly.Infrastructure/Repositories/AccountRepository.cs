@@ -13,14 +13,17 @@ public class AccountRepository : RepositoryBase<Account>, IAccountRepository
     {
     }
 
-    public async Task<Paginated<Account>> GetAccountsPaginated(ICurrentUserService currentUserService, int page = 0, int size = 5)
+    public async Task<Paginated<Account>> GetAccountsPaginated(ICurrentUserService currentUserService, int page = 0, int size = 5, bool showAllAccounts = false, bool ShowInactive = false)
     {
         int skipCount = page * size;
         var dataAll = DbContext.Accounts;
 
         var data = await dataAll
                         .Include(u => u.Transactions.Where(x => !x.IsDeleted))
-                        .Where(e => e.IsDeleted == false && e.CreatedById == currentUserService.UserId)
+                        .Where(e => 
+                           (showAllAccounts || e.CreatedById == currentUserService.UserId) &&
+                           (ShowInactive || !e.IsDeleted)
+                        )
                         .OrderBy(e => e.CreatedAt)
                         .Skip(skipCount)
                         .Take(size)
