@@ -13,15 +13,17 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddProblemDetails();
         services.AddEndpointsApiExplorer();
         services.AddDependencyInjections();
-        services.AddSwaggerSetting(); 
+        services.AddSwaggerSetting();
         services.ConnectionWithDataBase(_configuration);
         services.AddAuthorizationFirebase(_configuration);
         services.EnableFluentValidations();
         services.AddMediators();
         services.AddRepositories();
-        services.AddHttpContextAccessor(); 
+        services.AddHttpContextAccessor();
+        services.AddAddRateLimitingMiddleware();
 
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -48,6 +50,12 @@ public class Startup
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
+        app.UseExceptionHandler(exceptionHandlerApp => 
+            exceptionHandlerApp.Run(async context => await Results.Problem().ExecuteAsync(context)));
+        
+        app.UseStatusCodePages(async statusCodeContext => 
+            await Results.Problem(statusCode: statusCodeContext.HttpContext.Response.StatusCode)
+            .ExecuteAsync(statusCodeContext.HttpContext));
 
         app.UseSwagger(o =>
         {
@@ -62,6 +70,7 @@ public class Startup
         });
 
         app.UseRouting();
+        app.UseRateLimiter();
 
         app.UseCors(policy =>
         {
