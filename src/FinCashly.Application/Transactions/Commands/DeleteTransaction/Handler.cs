@@ -19,8 +19,12 @@ public class DeleteTransactionHandler : IRequestHandler<DeleteTransactionCommand
     {
         try
         {
-            var transaction = await _uow.Transactions.GetByIdAsync(request.Id)
-                ?? throw new NotFoundException("Transação não encontrada");
+            var transaction = await _uow.Transactions.GetByIdAsync(request.Id);
+
+            if (transaction == null)
+            {
+                throw new NotFoundException("Transação não encontrada");
+            }
 
             await _uow.Transactions.DeleteAsync(transaction);
             await _uow.SaveChangesAsync();

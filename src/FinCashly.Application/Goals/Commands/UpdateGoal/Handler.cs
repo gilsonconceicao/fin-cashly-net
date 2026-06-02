@@ -23,8 +23,12 @@ public class UpdateGoalHandler : IRequestHandler<UpdateGoalCommand, bool>
     {
         try
         {
-            var goal = await _uow.Goals.GetByIdAsync(request.Id)
-                    ?? throw new NotFoundException("Meta não encontrada");
+            var goal = await _uow.Goals.GetByIdAsync(request.Id);
+
+            if (goal == null)
+            {
+                throw new NotFoundException("Meta não encontrada");
+            }
             
             var payload = request.Payload;
 

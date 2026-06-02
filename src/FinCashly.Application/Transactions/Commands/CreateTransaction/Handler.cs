@@ -27,8 +27,12 @@ public class CreateTransactionHandler : IRequestHandler<CreateTransactionCommand
             await _uow.BeginTransactionAsync();
 
             var payload = request.Payload;
-            var account = await _uow.Accounts.GetByIdAsync(request.AccountId)
-                ?? throw new NotFoundException("Conta não encontrada ou não existe"); 
+            var account = await _uow.Accounts.GetByIdAsync(request.AccountId);
+
+            if (account == null)
+            {
+                throw new NotFoundException("Conta não encontrada ou não existe"); 
+            }
 
             var transaction = _mapper.Map<Transaction>(payload);
             transaction.AccountId = account.Id; 
@@ -36,8 +40,11 @@ public class CreateTransactionHandler : IRequestHandler<CreateTransactionCommand
             
             if (payload.CategoryId != null)
             {
-                var category = await _uow.Categories.GetByIdAsync((Guid)payload.CategoryId)
-                    ??  throw new NotFoundException("Categoria não encontrada ou não existe");
+                var category = await _uow.Categories.GetByIdAsync((Guid)payload.CategoryId);
+                if (category == null)
+                {
+                    throw new NotFoundException("Categoria não encontrada ou não existe");
+                }
                 transaction.CategoryId = category.Id;
             }
 

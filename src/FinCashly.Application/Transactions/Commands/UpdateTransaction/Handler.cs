@@ -20,8 +20,12 @@ public class UpdateTransactionHandler : IRequestHandler<UpdateTransactionCommand
         try
         {
             await _uow.BeginTransactionAsync();
-            var transaction = await _uow.Transactions.GetByIdAsync(request.Id)
-                ?? throw new NotFoundException("Transação não encontrada");
+            var transaction = await _uow.Transactions.GetByIdAsync(request.Id);
+
+            if(transaction == null)
+            {
+                throw new NotFoundException("Transação não encontrada");
+            }
 
             UpdateTransactionDto model = request.Payload; 
             

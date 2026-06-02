@@ -20,8 +20,12 @@ public class UpdateCategoryHandler : IRequestHandler<UpdateCategoryCommand, bool
         try
         {
             await _uow.BeginTransactionAsync();
-            var category = await _uow.Categories.GetByIdAsync(request.Id)
-                ?? throw new NotFoundException("Transação não encontrada");
+            var category = await _uow.Categories.GetByIdAsync(request.Id); 
+
+            if (category == null)
+            {
+                throw new NotFoundException("Transação não encontrada");
+            }
 
             UpdateCategoryDto model = request.Payload; 
             

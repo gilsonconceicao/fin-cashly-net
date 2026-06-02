@@ -21,8 +21,13 @@ public class DeleteUserHandler : IRequestHandler<DeleteUserCommand, bool>
     {
         try
         {
-            var user = await _uow.Users.GetByIdAsync(request.Id)
-                                        ?? throw new NotFoundException("Usuário não encontrado ou não existe");
+            var user = await _uow.Users.GetByIdAsync(request.Id);
+
+            if (user == null)
+            {
+                throw new NotFoundException("Usuário não encontrado ou não existe");
+            }
+            
             await _uow.Users.DeleteForEverAsync(user);
             await _uow.SaveChangesAsync();
             return true;
