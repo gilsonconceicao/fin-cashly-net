@@ -3,7 +3,6 @@ using System.Reflection;
 using System.Threading.RateLimiting;
 using MediatR;
 using Microsoft.AspNetCore.RateLimiting;
-using Polly;
 
 namespace FinCashly.API.Configurations;
 
