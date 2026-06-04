@@ -1,5 +1,6 @@
 using FinCashly.API.Configurations;
 using FinCashly.API.Extensions;
+using FinCashly.Infrastructure.DataBase;
 using Microsoft.EntityFrameworkCore;
 
 public class Startup
@@ -33,12 +34,11 @@ public class Startup
             opt.Filters.Add<CustomExceptionFilter>();
         });
 
-        // var postgreSql = GetPostgreSql(services);
         var logger = GetLogger(services);
 
         try
         {
-            // postgreSql.MigrateAsync().GetAwaiter().GetResult();
+            logger.LogInformation("Application started");
         }
         catch (Exception ex)
         {
@@ -50,10 +50,15 @@ public class Startup
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        app.UseExceptionHandler(exceptionHandlerApp => 
+        if (env.IsDevelopment())
+        {
+            RunMigration(app);
+        }
+
+        app.UseExceptionHandler(exceptionHandlerApp =>
             exceptionHandlerApp.Run(async context => await Results.Problem().ExecuteAsync(context)));
-        
-        app.UseStatusCodePages(async statusCodeContext => 
+
+        app.UseStatusCodePages(async statusCodeContext =>
             await Results.Problem(statusCode: statusCodeContext.HttpContext.Response.StatusCode)
             .ExecuteAsync(statusCodeContext.HttpContext));
 
@@ -87,7 +92,19 @@ public class Startup
             endpoints.MapControllers();
         });
     }
+    private void RunMigration(IApplicationBuilder app)
+    {
+        using var scope = app.ApplicationServices.CreateScope();
 
+        var logger = scope.ServiceProvider.GetRequiredService<ILogger<Startup>>();
+        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+        logger.LogInformation("Aplicando migrations...");
+
+        context.Database.Migrate();
+
+        logger.LogInformation("Migrations aplicadas com sucesso.");
+    }
     private static ILogger<Startup> GetLogger(IServiceCollection services)
     {
         return (ILogger<Startup>)services.BuildServiceProvider().GetService(typeof(ILogger<Startup>))!;
