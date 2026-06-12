@@ -19,6 +19,7 @@ public class Startup
         services.AddDependencyInjections();
         services.AddSwaggerSetting();
         services.ConnectionWithDataBase(_configuration);
+        services.AddRunSeendFileExecute(_configuration);
         services.AddAuthorizationFirebase(_configuration);
         services.EnableFluentValidations();
         services.AddMediators();
@@ -52,7 +53,7 @@ public class Startup
     {
         if (env.IsDevelopment())
         {
-            RunMigration(app);
+            // RunMigration(app);
         }
 
         app.UseExceptionHandler(exceptionHandlerApp =>
