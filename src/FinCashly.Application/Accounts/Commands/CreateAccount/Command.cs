@@ -5,6 +5,5 @@ namespace FinCashly.Application.Accounts.Commands.CreateAccount;
 
 public class CreateAccountCommand : IRequest<Guid>
 {
-    public Guid UserId {get; set;}
     public CreateAccountDto Payload {get; set;}    
 }

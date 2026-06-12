@@ -23,10 +23,6 @@ public class AccountConfiguration : IEntityTypeConfiguration<Account>
         builder.Property(x => x.Balance)
             .HasColumnType("decimal(18,2)");
 
-        builder.HasOne(x => x.User)
-            .WithMany(x => x.Accounts)
-            .HasForeignKey(x => x.UserId);
-
         builder.HasMany(x => x.Transactions)
             .WithOne(x => x.Account)
             .HasForeignKey(x => x.AccountId)

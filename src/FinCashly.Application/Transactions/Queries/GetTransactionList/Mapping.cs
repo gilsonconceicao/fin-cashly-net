@@ -1,5 +1,4 @@
 using AutoMapper;
-using FinCashly.Application.Users.Queries.GetUsersList;
 using FinCashly.Application.Utils;
 using FinCashly.Domain.Common;
 using FinCashly.Domain.Entities;

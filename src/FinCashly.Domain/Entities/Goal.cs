@@ -6,9 +6,6 @@ namespace FinCashly.Domain.Entities;
 public class Goal : AuditableEntity
 {
 
-    [Required]
-    public Guid UserId { get; set; }
-
     [Required, MaxLength(150)]
     public string Title { get; set; } = string.Empty;
 
@@ -21,8 +18,4 @@ public class Goal : AuditableEntity
     public DateTime? Deadline { get; set; } = null;
 
     public bool IsCompleted { get; set; } = false;
-
-    // Relationships
-    [ForeignKey(nameof(UserId))]
-    public User User { get; set; } = null!;
 }

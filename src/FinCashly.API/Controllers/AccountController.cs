@@ -63,13 +63,13 @@ namespace FinCashly.API.Controllers
         /// <summary>
         /// Cria uma nova conta para um usuário.
         /// </summary>
-        [HttpPost("{userId:guid}")]
+        [HttpPost]
         [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
-        public async Task<IActionResult> CreateAsync(Guid userId, [FromBody] CreateAccountDto model)
+        public async Task<IActionResult> CreateAsync([FromBody] CreateAccountDto model)
         {
+            var userId = Guid.NewGuid();
             var result = await _mediator.Send(new CreateAccountCommand
             {
-                UserId = userId,
                 Payload = model
             });
 

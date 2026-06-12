@@ -19,7 +19,6 @@ public class GoalRepository : RepositoryBase<Goal>, IGoalRepository
         var dataAll = DbContext.Goals;
 
         var data = await dataAll
-                        .Include(u => u.User)
                         .Where(e => e.IsDeleted == false && e.CreatedById == currentUserService.UserId)
                         .OrderBy(e => e.CreatedAt)
                         .Skip(skipCount)

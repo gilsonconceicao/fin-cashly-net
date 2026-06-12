@@ -1,4 +1,5 @@
 using AutoMapper;
+using FinCashly.Domain.Common.interfaces;
 using FinCashly.Domain.Entities;
 using FinCashly.Domain.Exceptions;
 using FinCashly.Domain.Repositories;
@@ -13,36 +14,34 @@ public class CreateAccountHandler : IRequestHandler<CreateAccountCommand, Guid>
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     private readonly ILogger<CreateAccountHandler> _logger;
-    public CreateAccountHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<CreateAccountHandler> logger)
+    private readonly ICurrentUserService _currentUserService; 
+    public CreateAccountHandler(IUnitOfWork unitOfWork, IMapper mapper, ILogger<CreateAccountHandler> logger, ICurrentUserService currentUserService)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
         _logger = logger;
+        _currentUserService = currentUserService;
     }
 
     public async Task<Guid> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
     {
         try
         {
+            var userContext = _currentUserService;
+
             await _unitOfWork.BeginTransactionAsync();
-            var user = await _unitOfWork.Users.GetByIdAsync(request.UserId);
-
-            if (user == null)
-            {
-                throw new NotFoundException("Usuário não encontrado");
-            }
-
+    
             var newAccount = _mapper.Map<Account>(request.Payload);
-            newAccount.UserId = user.Id;
+            // newAccount.UserId = user.Id;
 
             await _unitOfWork.Accounts.AddAsync(newAccount);
-            await _unitOfWork.CommitTransactionAsync();
+            // await _unitOfWork.CommitTransactionAsync();
 
             return newAccount.Id;
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Erro ao criar uma transação para o usuário {UserId}", request.UserId);
+            _logger.LogError(ex, "Erro ao criar uma transação para o usuário {UserId}", _currentUserService.UserId);
             await _unitOfWork.RollbackTransactionAsync();
             throw;
         }

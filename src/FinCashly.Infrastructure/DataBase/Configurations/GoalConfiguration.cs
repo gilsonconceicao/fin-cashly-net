@@ -20,10 +20,5 @@ public class GoalConfiguration : IEntityTypeConfiguration<Goal>
         builder.Property(x => x.CurrentAmount)
             .HasColumnType("decimal(18,2)");
 
-        // 1:N -> User -> Goals
-        builder.HasOne(x => x.User)
-            .WithMany(x => x.Goals)
-            .HasForeignKey(x => x.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
     }
 }

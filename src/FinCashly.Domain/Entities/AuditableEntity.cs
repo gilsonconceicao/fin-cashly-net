@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using FinCashly.Domain.Common.Interfaces;
-
+#nullable disable
 namespace FinCashly.Domain.Entities;
 
 public class AuditableEntity : IAuditableEntity
@@ -11,4 +11,5 @@ public class AuditableEntity : IAuditableEntity
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     public string? CreatedById { get; set; } = null;
+    public string UserId {get; set;}
 }

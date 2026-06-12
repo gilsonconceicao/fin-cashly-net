@@ -13,7 +13,6 @@ public static class Validations
     {
         services.AddFluentValidationAutoValidation();
         #region User
-        services.AddValidatorsFromAssemblyContaining<CreateUserValidator>();
         services.AddValidatorsFromAssemblyContaining<CreateAccountValidator>();
         #endregion
 

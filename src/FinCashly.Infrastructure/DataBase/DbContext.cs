@@ -16,7 +16,6 @@ public class ApplicationDbContext : DbContext
         _currentUser = currentUserService;
     }
 
-    public DbSet<User> Users { get; set; }
     public DbSet<Account> Accounts { get; set; }
     public DbSet<Transaction> Transactions { get; set; }
     public DbSet<Category> Categories { get; set; }
@@ -59,11 +58,16 @@ public class ApplicationDbContext : DbContext
                     if (_currentUser.UserId != null && !string.IsNullOrEmpty(_currentUser.UserId))
                     {
                         entry.Entity.CreatedById = _currentUser.UserId;
+                        entry.Entity.UserId = _currentUser.UserId;
                     }
                     break;
 
                 case EntityState.Modified:
                     entry.Entity.UpdatedAt = DateTime.UtcNow;
+                    if (_currentUser.UserId != null && !string.IsNullOrEmpty(_currentUser.UserId))
+                    {
+                        entry.Entity.UserId = _currentUser.UserId;
+                    }
                     break;
             }
         }
