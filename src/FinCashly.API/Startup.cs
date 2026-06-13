@@ -19,7 +19,6 @@ public class Startup
         services.AddDependencyInjections();
         services.AddSwaggerSetting();
         services.ConnectionWithDataBase(_configuration);
-        services.AddRunSeendFileExecute(_configuration);
         services.AddAuthorizationFirebase(_configuration);
         services.EnableFluentValidations();
         services.AddMediators();
@@ -51,10 +50,7 @@ public class Startup
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        if (env.IsDevelopment())
-        {
-            // RunMigration(app);
-        }
+        app.StartupConfigureDatabase(_configuration, env);
 
         app.UseExceptionHandler(exceptionHandlerApp =>
             exceptionHandlerApp.Run(async context => await Results.Problem().ExecuteAsync(context)));
@@ -93,19 +89,7 @@ public class Startup
             endpoints.MapControllers();
         });
     }
-    private void RunMigration(IApplicationBuilder app)
-    {
-        using var scope = app.ApplicationServices.CreateScope();
-
-        var logger = scope.ServiceProvider.GetRequiredService<ILogger<Startup>>();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-
-        logger.LogInformation("Aplicando migrations...");
-
-        context.Database.Migrate();
-
-        logger.LogInformation("Migrations aplicadas com sucesso.");
-    }
+    
     private static ILogger<Startup> GetLogger(IServiceCollection services)
     {
         return (ILogger<Startup>)services.BuildServiceProvider().GetService(typeof(ILogger<Startup>))!;
