@@ -1,5 +1,6 @@
 using FinCashly.API.Configurations;
 using FinCashly.API.Extensions;
+using FinCashly.Application.Common;
 using FinCashly.Infrastructure.DataBase;
 using Microsoft.EntityFrameworkCore;
 
@@ -48,9 +49,9 @@ public class Startup
         }
     }
 
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        app.StartupConfigureDatabase(_configuration, env);
+        app.MigrationManagement(_configuration);
 
         app.UseExceptionHandler(exceptionHandlerApp =>
             exceptionHandlerApp.Run(async context => await Results.Problem().ExecuteAsync(context)));
@@ -89,7 +90,7 @@ public class Startup
             endpoints.MapControllers();
         });
     }
-    
+
     private static ILogger<Startup> GetLogger(IServiceCollection services)
     {
         return (ILogger<Startup>)services.BuildServiceProvider().GetService(typeof(ILogger<Startup>))!;

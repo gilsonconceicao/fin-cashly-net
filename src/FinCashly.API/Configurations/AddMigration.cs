@@ -1,36 +1,28 @@
 using System.Text.Json;
 using FinCashly.API.seed;
+using FinCashly.Application.Common;
 using FinCashly.Infrastructure.DataBase;
 using FinCashly.Infrastructure.Settings;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinCashly.API.Configurations
 {
-    public static class AddStartupConfigureDatabase
+    public static class AddMigration
     {
-        public static IApplicationBuilder StartupConfigureDatabase(this IApplicationBuilder app, IConfiguration configuration, IWebHostEnvironment env)
+        public static IApplicationBuilder MigrationManagement(this IApplicationBuilder app, IConfiguration configuration)
         {
             var featureFlagsSettings = configuration.GetSection("FeatureFlagsSettings").Get<FeatureFlagsSettings>();
-            
+
             if (featureFlagsSettings is null)
             {
                 return app;
-            } 
+            }
 
-            if (featureFlagsSettings?.EnableRunMigrateDb== true)
+            if (featureFlagsSettings?.EnableRunMigrateDb == true)
             {
                 RunMigration(app);
             }
 
-            if (featureFlagsSettings?.EnableRunSeedFile == true)
-            {
-                string dir = AppDomain.CurrentDomain.BaseDirectory;
-                string relativePath = Path.Combine(dir, "seed/FinCashlySeed.json");
-                string jsonConfig = File.ReadAllText(relativePath);
-                var data = JsonSerializer.Deserialize<List<SeedFinCashly>>(jsonConfig);
-
-                Console.WriteLine(JsonSerializer.Serialize(data));
-            }
             return app;
         }
 

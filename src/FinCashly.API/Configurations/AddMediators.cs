@@ -6,6 +6,7 @@ using FinCashly.Application.Categories.Commands.CreateCategory;
 using FinCashly.Application.Categories.Commands.DeleteCategory;
 using FinCashly.Application.Categories.Commands.UpdateCategory;
 using FinCashly.Application.Categories.Queries.GetCategoryList;
+using FinCashly.Application.Common;
 using FinCashly.Application.Goals.Commands.CreateGoal;
 using FinCashly.Application.Goals.Commands.UpdateGoal;
 using FinCashly.Application.Goals.Queries.GetGoalList;
@@ -52,6 +53,11 @@ public static class Mediators
         services.AddTransient<IRequestHandler<CreateGoalCommand, Guid>, CreateGoalHandler>();
         services.AddTransient<IRequestHandler<UpdateGoalCommand, bool>, UpdateGoalHandler>();
         #endregion
+
+        #region Others
+        services.AddTransient<IRequestHandler<DatabaseSeederCommand, bool>, DatabaseSeederCommandHandler>();
+        #endregion
+
         return services;
     }
 
