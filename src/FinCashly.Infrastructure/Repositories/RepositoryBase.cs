@@ -46,4 +46,9 @@ public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where T
         DbContext.Set<TEntity>().Update(entity);
         return Task.CompletedTask;
     }
+
+    public async Task AddRangeAsync(List<TEntity> entities)
+    {
+        await DbContext.Set<TEntity>().AddRangeAsync(entities);
+    }
 }

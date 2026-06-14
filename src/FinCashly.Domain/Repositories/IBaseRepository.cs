@@ -9,4 +9,5 @@ public interface IRepositoryBase<T> where T : class
     Task UpdateAsync(T entity);
     Task DeleteForEverAsync(T entity);
     Task DeleteAsync(T entity);
+    Task AddRangeAsync(List<T> entities);
 }
