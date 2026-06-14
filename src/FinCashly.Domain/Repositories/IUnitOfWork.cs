@@ -2,10 +2,10 @@ namespace FinCashly.Domain.Repositories;
 
 public interface IUnitOfWork
 {
-    IAccountRepository Accounts { get; }
-    ITransactionsRepository Transactions { get; }
-    ICategoryRepository Categories { get; }
-    IGoalRepository Goals { get; }
+    IAccountRepository AccountRepository { get; }
+    ITransactionsRepository TransactionsRepository { get; }
+    ICategoryRepository CategoryRepository { get; }
+    IGoalRepository GoalRepository { get; }
     Task BeginTransactionAsync();
     Task CommitTransactionAsync();
     Task RollbackTransactionAsync();

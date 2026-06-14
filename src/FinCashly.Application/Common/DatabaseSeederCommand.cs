@@ -171,10 +171,10 @@ public class DatabaseSeederCommandHandler : IRequestHandler<DatabaseSeederComman
                 });
             }
             
-            await _uow.Accounts.AddRangeAsync(accounts);
-            await _uow.Categories.AddRangeAsync(categories);
-            await _uow.Goals.AddRangeAsync(goals);
-            await _uow.Transactions.AddRangeAsync(transactions);
+            await _uow.AccountRepository.AddRangeAsync(accounts);
+            await _uow.CategoryRepository.AddRangeAsync(categories);
+            await _uow.GoalRepository.AddRangeAsync(goals);
+            await _uow.TransactionsRepository.AddRangeAsync(transactions);
 
             await _uow.SaveChangesAsync();
             await _uow.CommitTransactionAsync();

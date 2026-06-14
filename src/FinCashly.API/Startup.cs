@@ -23,13 +23,14 @@ public class Startup
         services.EnableFluentValidations();
         services.AddMediators();
         services.AddRepositories();
+        services.AddMemoryCacheService(); 
 
         // set environment variables 
         services.Configure<FeatureFlagsSettings>(_configuration.GetSection("FeatureFlagsSettings"));
 
 
         services.AddHttpContextAccessor();
-        services.AddAddRateLimitingMiddleware();
+        services.AddRateLimitingService();
 
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

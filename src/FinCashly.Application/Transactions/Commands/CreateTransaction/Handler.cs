@@ -27,7 +27,7 @@ public class CreateTransactionHandler : IRequestHandler<CreateTransactionCommand
             await _uow.BeginTransactionAsync();
 
             var payload = request.Payload;
-            var account = await _uow.Accounts.GetByIdAsync(request.AccountId);
+            var account = await _uow.AccountRepository.GetByIdAsync(request.AccountId);
 
             if (account == null)
             {
@@ -40,7 +40,7 @@ public class CreateTransactionHandler : IRequestHandler<CreateTransactionCommand
             
             if (payload.CategoryId != null)
             {
-                var category = await _uow.Categories.GetByIdAsync((Guid)payload.CategoryId);
+                var category = await _uow.CategoryRepository.GetByIdAsync((Guid)payload.CategoryId);
                 if (category == null)
                 {
                     throw new NotFoundException("Categoria não encontrada ou não existe");
@@ -48,7 +48,7 @@ public class CreateTransactionHandler : IRequestHandler<CreateTransactionCommand
                 transaction.CategoryId = category.Id;
             }
 
-            await _uow.Transactions.AddAsync(transaction);
+            await _uow.TransactionsRepository.AddAsync(transaction);
             await _uow.CommitTransactionAsync();
             return transaction.Id; 
         }

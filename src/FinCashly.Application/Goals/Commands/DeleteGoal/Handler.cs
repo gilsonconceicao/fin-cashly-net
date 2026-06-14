@@ -19,14 +19,14 @@ public class DeleteGoalsHandler : IRequestHandler<DeleteGoalCommand, bool>
     {
         try
         {
-            var transaction = await _uow.Goals.GetByIdAsync(request.Id);
+            var transaction = await _uow.GoalRepository.GetByIdAsync(request.Id);
 
             if (transaction == null)
             {
                 throw new NotFoundException("meta não encontrada");
             }
 
-            await _uow.Goals.DeleteAsync(transaction);
+            await _uow.GoalRepository.DeleteAsync(transaction);
             await _uow.SaveChangesAsync();
             return true;
         }

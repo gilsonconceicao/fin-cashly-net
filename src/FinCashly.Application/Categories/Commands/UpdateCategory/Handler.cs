@@ -20,7 +20,7 @@ public class UpdateCategoryHandler : IRequestHandler<UpdateCategoryCommand, bool
         try
         {
             await _uow.BeginTransactionAsync();
-            var category = await _uow.Categories.GetByIdAsync(request.Id); 
+            var category = await _uow.CategoryRepository.GetByIdAsync(request.Id); 
 
             if (category == null)
             {
@@ -38,7 +38,7 @@ public class UpdateCategoryHandler : IRequestHandler<UpdateCategoryCommand, bool
             if(model.IsDefault != null) 
                 category.IsDefault = (bool)model.IsDefault;
 
-            await _uow.Categories.UpdateAsync(category);
+            await _uow.CategoryRepository.UpdateAsync(category);
             await _uow.CommitTransactionAsync();
             return true;
         }

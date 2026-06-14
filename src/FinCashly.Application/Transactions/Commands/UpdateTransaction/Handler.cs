@@ -20,7 +20,7 @@ public class UpdateTransactionHandler : IRequestHandler<UpdateTransactionCommand
         try
         {
             await _uow.BeginTransactionAsync();
-            var transaction = await _uow.Transactions.GetByIdAsync(request.Id);
+            var transaction = await _uow.TransactionsRepository.GetByIdAsync(request.Id);
 
             if(transaction == null)
             {
@@ -42,7 +42,7 @@ public class UpdateTransactionHandler : IRequestHandler<UpdateTransactionCommand
             
             if (model.CategoryId != null)
             {
-                if (await _uow.Categories.GetByIdAsync((Guid)model.CategoryId) is null)
+                if (await _uow.CategoryRepository.GetByIdAsync((Guid)model.CategoryId) is null)
                 {
                     throw new NotFoundException("Categoria informada não encontrada");
                 }
@@ -50,7 +50,7 @@ public class UpdateTransactionHandler : IRequestHandler<UpdateTransactionCommand
                 transaction.CategoryId = model.CategoryId;
             }
 
-            await _uow.Transactions.UpdateAsync(transaction);
+            await _uow.TransactionsRepository.UpdateAsync(transaction);
             await _uow.CommitTransactionAsync();
             return true;
         }
