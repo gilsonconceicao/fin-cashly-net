@@ -51,4 +51,9 @@ public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where T
     {
         await DbContext.Set<TEntity>().AddRangeAsync(entities);
     }
+
+    public async Task<List<TEntity>> GetAll()
+    {
+        return await DbContext.Set<TEntity>().ToListAsync();
+    }
 }

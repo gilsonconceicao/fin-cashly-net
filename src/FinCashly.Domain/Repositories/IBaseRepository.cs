@@ -4,6 +4,7 @@ namespace FinCashly.Domain.Repositories;
 
 public interface IRepositoryBase<T> where T : class
 {
+    Task<List<T>> GetAll();
     Task<T> GetByIdAsync(Guid id);
     Task AddAsync(T entity);
     Task UpdateAsync(T entity);
