@@ -35,7 +35,7 @@ public class GetCategoryListHandler : IRequestHandler<GetCategoryPaginatedQuery,
             var list = await _cache.GetOrSetAsync(
                 key, 
                 async () => await _uow.CategoryRepository.GetCategoriesPaginatedList(_currentUserService, request.Page, request.Size), 
-                TimeSpan.FromMinutes(1)
+                TimeSpan.FromSeconds(30)
             );
             return _mapper.Map<Paginated<GetCategoryPaginatedDto>>(list);
         }

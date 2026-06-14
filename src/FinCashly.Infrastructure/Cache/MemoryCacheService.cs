@@ -12,14 +12,14 @@ namespace FinCashly.Infrastructure.Cache
             _cache = cache;
         }
 
-        public async Task<T?> GetOrSetAsync<T>(string key, Func<Task<T>> factory, TimeSpan expiration)
+        public async Task<T?> GetOrSetAsync<T>(string key, Func<Task<T>> methodTask, TimeSpan expiration)
         {
             return await _cache.GetOrCreateAsync(
                 key,
                 async entry =>
                 {
                     entry.AbsoluteExpirationRelativeToNow = expiration; 
-                    return await factory();
+                    return await methodTask();
                 });
         }
 

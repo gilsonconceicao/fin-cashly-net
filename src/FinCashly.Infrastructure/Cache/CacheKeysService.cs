@@ -11,5 +11,10 @@ namespace FinCashly.Infrastructure.Cache
         {
             return $"categories:{userId}";
         }
+
+        public string Goals(string userId)
+        {
+            return $"goals:{userId}";
+        }
     }
 }
