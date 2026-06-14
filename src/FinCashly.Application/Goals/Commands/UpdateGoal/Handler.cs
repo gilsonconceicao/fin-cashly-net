@@ -23,7 +23,7 @@ public class UpdateGoalHandler : IRequestHandler<UpdateGoalCommand, bool>
     {
         try
         {
-            var goal = await _uow.Goals.GetByIdAsync(request.Id);
+            var goal = await _uow.GoalRepository.GetByIdAsync(request.Id);
 
             if (goal == null)
             {
@@ -41,7 +41,7 @@ public class UpdateGoalHandler : IRequestHandler<UpdateGoalCommand, bool>
             if (!string.IsNullOrEmpty(payload.Title))
                 goal.Title = payload.Title;
 
-            await _uow.Goals.AddAsync(goal);
+            await _uow.GoalRepository.AddAsync(goal);
             await _uow.SaveChangesAsync();
             
             return true;

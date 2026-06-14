@@ -8,7 +8,7 @@ namespace FinCashly.API.Configurations;
 
 public static class RateLimit
 {
-    public static IServiceCollection AddAddRateLimitingMiddleware(this IServiceCollection services)
+    public static IServiceCollection AddRateLimitingService(this IServiceCollection services)
     {
         services.AddRateLimiter(options =>
         {

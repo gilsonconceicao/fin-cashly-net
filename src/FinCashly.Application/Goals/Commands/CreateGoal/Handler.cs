@@ -26,7 +26,7 @@ public class CreateGoalHandler : IRequestHandler<CreateGoalCommand, Guid>
             await _uow.BeginTransactionAsync();
 
             var goal = _mapper.Map<Goal>(request.Payload);
-            await _uow.Goals.AddAsync(goal); 
+            await _uow.GoalRepository.AddAsync(goal); 
             await _uow.CommitTransactionAsync(); 
             
             return goal.Id;

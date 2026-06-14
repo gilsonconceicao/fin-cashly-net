@@ -21,10 +21,10 @@ public class UnitOfWork : IUnitOfWork
         _context = context;
     }
 
-    public ITransactionsRepository Transactions => _transactionRepository ??= new TransactionRepository(_context);
-    public IAccountRepository Accounts => _accountRepository ??= new AccountRepository(_context);
-    public ICategoryRepository Categories => _categoryRepository ??= new CategoryRepository(_context);
-    public IGoalRepository Goals => _goalRepository ??= new GoalRepository(_context);
+    public ITransactionsRepository TransactionsRepository => _transactionRepository ??= new TransactionRepository(_context);
+    public IAccountRepository AccountRepository => _accountRepository ??= new AccountRepository(_context);
+    public ICategoryRepository CategoryRepository => _categoryRepository ??= new CategoryRepository(_context);
+    public IGoalRepository GoalRepository => _goalRepository ??= new GoalRepository(_context);
 
     public async Task BeginTransactionAsync()
     {

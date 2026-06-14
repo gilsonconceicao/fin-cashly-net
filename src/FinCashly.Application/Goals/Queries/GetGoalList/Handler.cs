@@ -27,7 +27,7 @@ public class GetGoalListHandler : IRequestHandler<GetGoalPaginatedListQuery, Pag
     {
          try
         {
-            var list = await _uow.Goals.GetGoalsPaginatedList(_currentUserService, request.Page, request.Size);
+            var list = await _uow.GoalRepository.GetGoalsPaginatedList(_currentUserService, request.Page, request.Size);
             return _mapper.Map<Paginated<GetGoalPaginatedDto>>(list);
         }
         catch (Exception ex)

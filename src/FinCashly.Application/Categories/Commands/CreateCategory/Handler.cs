@@ -28,7 +28,7 @@ public class CreateCategoryHandler : IRequestHandler<CreateCategoryCommand, Guid
             var payload = request.Payload;
             var category = _mapper.Map<Category>(payload);
 
-            await _uow.Categories.AddAsync(category);
+            await _uow.CategoryRepository.AddAsync(category);
             await _uow.CommitTransactionAsync();
             return category.Id; 
         }

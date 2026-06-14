@@ -26,7 +26,7 @@ public class GetTransactionListHandler : IRequestHandler<GetTransactionListQuery
     {
         try
         {
-            var list = await _uow.Transactions.GetTransactionPaginated(_currentUserService, request.Page, request.Size);
+            var list = await _uow.TransactionsRepository.GetTransactionPaginated(_currentUserService, request.Page, request.Size);
             return _mapper.Map<Paginated<GetTransactionPaginatedDto>>(list);
         }
         catch (Exception ex)

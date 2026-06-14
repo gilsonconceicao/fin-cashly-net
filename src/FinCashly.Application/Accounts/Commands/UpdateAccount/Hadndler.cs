@@ -21,7 +21,7 @@ public class UpdateAccountHandler : IRequestHandler<UpdateAccountCommand, Guid>
     {
         try
         {
-            var account = await _unitOfWork.Accounts.GetByIdAsync(request.AccountId);
+            var account = await _unitOfWork.AccountRepository.GetByIdAsync(request.AccountId);
 
             if (account == null)
             {

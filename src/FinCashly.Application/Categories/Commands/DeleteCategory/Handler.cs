@@ -19,14 +19,14 @@ public class DeleteCategoryHandler : IRequestHandler<DeleteCategoryCommand, bool
     {
         try
         {
-            var transaction = await _uow.Categories.GetByIdAsync(request.Id); 
+            var transaction = await _uow.CategoryRepository.GetByIdAsync(request.Id); 
 
             if (transaction == null)
             {
                 throw new NotFoundException("Categoria não encontrada");
             }
 
-            await _uow.Categories.DeleteAsync(transaction);
+            await _uow.CategoryRepository.DeleteAsync(transaction);
             await _uow.SaveChangesAsync();
             return true;
         }

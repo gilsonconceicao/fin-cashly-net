@@ -19,12 +19,12 @@ public class DeleteAccountHandler : IRequestHandler<DeleteAccountCommand, bool>
     {
         try
         {
-            var account = await _uow.Accounts.GetByIdAsync(request.Id);
+            var account = await _uow.AccountRepository.GetByIdAsync(request.Id);
             if (account == null)
             {
                 throw new NotFoundException("Conta não encontrado ou não existe"); 
             }
-            await _uow.Accounts.DeleteAsync(account);
+            await _uow.AccountRepository.DeleteAsync(account);
             await _uow.SaveChangesAsync();
             return true;
         }

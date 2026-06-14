@@ -32,10 +32,9 @@ public class CreateAccountHandler : IRequestHandler<CreateAccountCommand, Guid>
             await _unitOfWork.BeginTransactionAsync();
     
             var newAccount = _mapper.Map<Account>(request.Payload);
-            // newAccount.UserId = user.Id;
 
-            await _unitOfWork.Accounts.AddAsync(newAccount);
-            // await _unitOfWork.CommitTransactionAsync();
+            await _unitOfWork.AccountRepository.AddAsync(newAccount);
+            await _unitOfWork.CommitTransactionAsync();
 
             return newAccount.Id;
         }
