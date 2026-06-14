@@ -1,4 +1,4 @@
-using FinCashly.Application.Common.Interfaces;
+using FinCashly.Domain.Common.interfaces;
 using FinCashly.Domain.Security;
 using FirebaseAdmin.Auth;
 

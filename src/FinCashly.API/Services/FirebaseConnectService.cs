@@ -1,4 +1,4 @@
-using FinCashly.Infrastructure.Settings;
+using FinCashly.Domain.Settings;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
 using System.Text.Json;

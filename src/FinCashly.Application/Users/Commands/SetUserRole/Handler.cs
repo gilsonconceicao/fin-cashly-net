@@ -1,4 +1,4 @@
-using FinCashly.Application.Common.Interfaces;
+using FinCashly.Domain.Common.interfaces;
 using MediatR;
 namespace FinCashly.Application.Users.Commands.SetUserRole;
 
