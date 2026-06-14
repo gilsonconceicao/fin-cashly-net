@@ -1,8 +1,5 @@
-using System.Text.Json;
-using FinCashly.API.seed;
-using FinCashly.Application.Common;
+using FinCashly.Domain.Settings;
 using FinCashly.Infrastructure.DataBase;
-using FinCashly.Infrastructure.Settings;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinCashly.API.Configurations

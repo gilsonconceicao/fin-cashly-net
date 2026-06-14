@@ -1,7 +1,6 @@
 using FinCashly.API.Auth;
 using FinCashly.API.Extensions;
 using FinCashly.API.Services;
-using FinCashly.Application.Common.Interfaces;
 using FinCashly.Domain.Common.interfaces;
 using FinCashly.Domain.Security;
 using FinCashly.Infrastructure.Firebase;

@@ -1,7 +1,6 @@
 using FinCashly.API.Configurations;
 using FinCashly.API.Extensions;
-using FinCashly.Application.Common;
-using FinCashly.Infrastructure.DataBase;
+using FinCashly.Domain.Settings;
 using Microsoft.EntityFrameworkCore;
 
 public class Startup
@@ -24,6 +23,11 @@ public class Startup
         services.EnableFluentValidations();
         services.AddMediators();
         services.AddRepositories();
+
+        // set environment variables 
+        services.Configure<FeatureFlagsSettings>(_configuration.GetSection("FeatureFlagsSettings"));
+
+
         services.AddHttpContextAccessor();
         services.AddAddRateLimitingMiddleware();
 
