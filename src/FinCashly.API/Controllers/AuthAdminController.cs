@@ -1,28 +1,42 @@
-using FinCashly.API.Controllers;
 using FinCashly.Application.Transactions.Queries.GetTransactionList;
 using FinCashly.Application.Users.Commands.SetUserRole;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
-[ApiController]
-[Route("api/admin/auth")]
-public class AuthAdminController : BasePrivateController
+namespace FinCashly.API.Controllers
 {
-    public AuthAdminController(IMediator mediator) : base(mediator) { }
-
-    [HttpPost("set-role")]
-    [ApiExplorerSettings(IgnoreApi = true)]
-    public async Task<IActionResult> SetRole([FromBody] SetUserRoleCommand command)
+    [ApiController]
+    [Route("api/admin/auth")]
+    [Tags("AuthAdmin")]
+    public class AuthAdminController : BasePrivateController
     {
-        await _mediator.Send(command);
-        return Ok(new { Message = "Role atualizada com sucesso!" });
+        public AuthAdminController(IMediator mediator) : base(mediator)
+        {
+        }
+
+        /// <summary>
+        /// Definir uma permissão para um usuário
+        /// </summary>
+        [HttpPost("set-role")]
+        [ProducesResponseType<string>(StatusCodes.Status200OK)]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public async Task<IActionResult> SetRole([FromBody] SetUserRoleCommand command)
+        {
+            await _mediator.Send(command);
+            return Ok(new { Message = "Role atualizada com sucesso!" });
+        }
+
+#if DEBUG
+        /// <summary>
+        /// Executar process de seed (popular banco de dados)
+        /// </summary>
+        [HttpPost("run-seed")]
+        [ProducesResponseType<bool>(StatusCodes.Status200OK)]
+        public async Task<IActionResult> RunSeed([FromBody] DatabaseSeederCommand command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
+#endif
     }
 
-    [HttpPost("run-seed")]
-    [ApiExplorerSettings(IgnoreApi = true)]
-    public async Task<IActionResult> RunSeed([FromBody] DatabaseSeederCommand command)
-    {
-        return Ok(await _mediator.Send(command));
-    }
 }
+

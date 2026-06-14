@@ -1,0 +1,2429 @@
+[
+  {
+    "dbDestination": "account",
+    "seedId": "account-001",
+    "name": "Nubank",
+    "type": "Checking",
+    "balance": 8420.75
+  },
+  {
+    "dbDestination": "account",
+    "seedId": "account-002",
+    "name": "Itaú",
+    "type": "Checking",
+    "balance": 3150.2
+  },
+  {
+    "dbDestination": "account",
+    "seedId": "account-003",
+    "name": "Reserva Emergência",
+    "type": "Savings",
+    "balance": 25000
+  },
+  {
+    "dbDestination": "account",
+    "seedId": "account-004",
+    "name": "XP Investimentos",
+    "type": "Investment",
+    "balance": 42000
+  },
+  {
+    "dbDestination": "account",
+    "seedId": "account-005",
+    "name": "Carteira",
+    "type": "Cash",
+    "balance": 350
+  },
+  {
+    "dbDestination": "account",
+    "seedId": "account-006",
+    "name": "Cartão Nubank",
+    "type": "Credit",
+    "balance": -1200
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-001",
+    "name": "Salário",
+    "type": "Income",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-002",
+    "name": "Freelance",
+    "type": "Income",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-003",
+    "name": "Dividendos",
+    "type": "Income",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-004",
+    "name": "Investimentos",
+    "type": "Income",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-005",
+    "name": "Alimentação",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-006",
+    "name": "Moradia",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-007",
+    "name": "Transporte",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-008",
+    "name": "Lazer",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-009",
+    "name": "Saúde",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-010",
+    "name": "Educação",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-011",
+    "name": "Assinaturas",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-012",
+    "name": "Academia",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-013",
+    "name": "Viagem",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-014",
+    "name": "Tecnologia",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-015",
+    "name": "Impostos",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-016",
+    "name": "Presentes",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-017",
+    "name": "Pets",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-018",
+    "name": "Mercado",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-019",
+    "name": "Restaurantes",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "category",
+    "seedId": "category-020",
+    "name": "Streaming",
+    "type": "Expense",
+    "isDefault": true
+  },
+  {
+    "dbDestination": "goal",
+    "seedId": "goal-001",
+    "title": "Notebook Gamer",
+    "targetAmount": 9000,
+    "currentAmount": 4200,
+    "deadline": "2027-12-31T00:00:00Z",
+    "isCompleted": false
+  },
+  {
+    "dbDestination": "goal",
+    "seedId": "goal-002",
+    "title": "Viagem Japão",
+    "targetAmount": 30000,
+    "currentAmount": 12000,
+    "deadline": "2027-12-31T00:00:00Z",
+    "isCompleted": false
+  },
+  {
+    "dbDestination": "goal",
+    "seedId": "goal-003",
+    "title": "Reserva Emergência",
+    "targetAmount": 50000,
+    "currentAmount": 25000,
+    "deadline": "2027-12-31T00:00:00Z",
+    "isCompleted": false
+  },
+  {
+    "dbDestination": "goal",
+    "seedId": "goal-004",
+    "title": "Entrada Apartamento",
+    "targetAmount": 80000,
+    "currentAmount": 18000,
+    "deadline": "2027-12-31T00:00:00Z",
+    "isCompleted": false
+  },
+  {
+    "dbDestination": "goal",
+    "seedId": "goal-005",
+    "title": "Carro",
+    "targetAmount": 45000,
+    "currentAmount": 9000,
+    "deadline": "2027-12-31T00:00:00Z",
+    "isCompleted": false
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-001",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-01-01T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-002",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-008",
+    "amount": 44.64,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2025-01-03T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-003",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-012",
+    "amount": 180.35,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2025-01-05T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-004",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-007",
+    "amount": 714.73,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2025-01-07T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-005",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-007",
+    "amount": 274.09,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2025-01-09T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-006",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-005",
+    "amount": 680.08,
+    "type": "Expense",
+    "description": "Presente",
+    "date": "2025-01-11T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-007",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-018",
+    "amount": 276.22,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2025-01-13T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-008",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-005",
+    "amount": 914.19,
+    "type": "Expense",
+    "description": "Netflix",
+    "date": "2025-01-15T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-009",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-01-17T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-010",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-015",
+    "amount": 344.28,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2025-01-19T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-011",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-008",
+    "amount": 124.9,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2025-01-21T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-012",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-016",
+    "amount": 730.42,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2025-01-23T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-013",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-019",
+    "amount": 650.43,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-01-25T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-014",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-014",
+    "amount": 997.84,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2025-01-27T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-015",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-011",
+    "amount": 849.92,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2025-01-29T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-016",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-012",
+    "amount": 931.09,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2025-01-31T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-017",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-02-02T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-018",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-002",
+    "amount": 2356,
+    "type": "Income",
+    "description": "Projeto freelance",
+    "date": "2025-02-04T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-019",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-019",
+    "amount": 768.29,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2025-02-06T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-020",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-016",
+    "amount": 436.0,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-02-08T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-021",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-007",
+    "amount": 736.82,
+    "type": "Expense",
+    "description": "Netflix",
+    "date": "2025-02-10T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-022",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-012",
+    "amount": 208.63,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-02-12T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-023",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-012",
+    "amount": 826.27,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2025-02-14T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-024",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-006",
+    "amount": 968.98,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-02-16T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-025",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-02-18T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-026",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-011",
+    "amount": 1097.07,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2025-02-20T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-027",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-015",
+    "amount": 266.96,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-02-22T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-028",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-019",
+    "amount": 184.3,
+    "type": "Expense",
+    "description": "Netflix",
+    "date": "2025-02-24T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-029",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-013",
+    "amount": 900.21,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-02-26T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-030",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-017",
+    "amount": 443.97,
+    "type": "Expense",
+    "description": "Netflix",
+    "date": "2025-02-28T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-031",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-020",
+    "amount": 122.73,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2025-03-02T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-032",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-009",
+    "amount": 758.52,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-03-04T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-033",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-03-06T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-034",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-007",
+    "amount": 470.95,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2025-03-08T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-035",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-002",
+    "amount": 2967,
+    "type": "Income",
+    "description": "Projeto freelance",
+    "date": "2025-03-10T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-036",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-005",
+    "amount": 821.14,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2025-03-12T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-037",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-013",
+    "amount": 925.79,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2025-03-14T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-038",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-014",
+    "amount": 530.2,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-03-16T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-039",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-013",
+    "amount": 1166.69,
+    "type": "Expense",
+    "description": "Netflix",
+    "date": "2025-03-18T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-040",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-008",
+    "amount": 1046.56,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2025-03-20T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-041",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-03-22T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-042",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-011",
+    "amount": 196.11,
+    "type": "Expense",
+    "description": "Netflix",
+    "date": "2025-03-24T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-043",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-005",
+    "amount": 724.75,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-03-26T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-044",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-008",
+    "amount": 1115.98,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2025-03-28T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-045",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-006",
+    "amount": 300.43,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2025-03-30T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-046",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-007",
+    "amount": 882.31,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2025-04-01T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-047",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-009",
+    "amount": 167.14,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-04-03T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-048",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-010",
+    "amount": 329.09,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2025-04-05T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-049",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-04-07T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-050",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-011",
+    "amount": 859.84,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-04-09T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-051",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-016",
+    "amount": 534.15,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2025-04-11T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-052",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-002",
+    "amount": 1295,
+    "type": "Income",
+    "description": "Projeto freelance",
+    "date": "2025-04-13T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-053",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-012",
+    "amount": 90.87,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2025-04-15T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-054",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-012",
+    "amount": 712.3,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2025-04-17T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-055",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-006",
+    "amount": 286.3,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2025-04-19T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-056",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-007",
+    "amount": 624.28,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2025-04-21T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-057",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-04-23T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-058",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-011",
+    "amount": 653.99,
+    "type": "Expense",
+    "description": "Presente",
+    "date": "2025-04-25T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-059",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-020",
+    "amount": 302.95,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-04-27T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-060",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-011",
+    "amount": 126.78,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-04-29T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-061",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-016",
+    "amount": 516.94,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-05-01T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-062",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-006",
+    "amount": 812.94,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-05-03T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-063",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-006",
+    "amount": 492.11,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2025-05-05T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-064",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-012",
+    "amount": 242.03,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2025-05-07T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-065",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-05-09T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-066",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-018",
+    "amount": 232.43,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-05-11T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-067",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-007",
+    "amount": 540.11,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2025-05-13T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-068",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-006",
+    "amount": 787.79,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2025-05-15T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-069",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-002",
+    "amount": 1182,
+    "type": "Income",
+    "description": "Projeto freelance",
+    "date": "2025-05-17T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-070",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-010",
+    "amount": 496.6,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-05-19T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-071",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-017",
+    "amount": 1084.39,
+    "type": "Expense",
+    "description": "Netflix",
+    "date": "2025-05-21T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-072",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-005",
+    "amount": 1182.59,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2025-05-23T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-073",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-05-25T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-074",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-018",
+    "amount": 840.46,
+    "type": "Expense",
+    "description": "Presente",
+    "date": "2025-05-27T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-075",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-020",
+    "amount": 198.43,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2025-05-29T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-076",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-006",
+    "amount": 701.33,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2025-05-31T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-077",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-015",
+    "amount": 82.74,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2025-06-02T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-078",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-010",
+    "amount": 82.4,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2025-06-04T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-079",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-010",
+    "amount": 96.2,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2025-06-06T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-080",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-012",
+    "amount": 493.47,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2025-06-08T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-081",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-06-10T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-082",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-006",
+    "amount": 748.97,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-06-12T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-083",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-015",
+    "amount": 1122.63,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2025-06-14T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-084",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-015",
+    "amount": 297.84,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-06-16T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-085",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-014",
+    "amount": 556.81,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2025-06-18T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-086",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-002",
+    "amount": 2677,
+    "type": "Income",
+    "description": "Projeto freelance",
+    "date": "2025-06-20T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-087",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-008",
+    "amount": 101.81,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2025-06-22T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-088",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-013",
+    "amount": 171.96,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2025-06-24T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-089",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-06-26T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-090",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-016",
+    "amount": 352.71,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-06-28T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-091",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-014",
+    "amount": 739.84,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-06-30T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-092",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-005",
+    "amount": 806.42,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2025-07-02T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-093",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-008",
+    "amount": 1127.63,
+    "type": "Expense",
+    "description": "Netflix",
+    "date": "2025-07-04T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-094",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-008",
+    "amount": 1069.31,
+    "type": "Expense",
+    "description": "Presente",
+    "date": "2025-07-06T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-095",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-009",
+    "amount": 337.73,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2025-07-08T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-096",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-015",
+    "amount": 256.26,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-07-10T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-097",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-07-12T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-098",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-020",
+    "amount": 312.58,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2025-07-14T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-099",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-018",
+    "amount": 997.78,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2025-07-16T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-100",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-015",
+    "amount": 928.78,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-07-18T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-101",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-010",
+    "amount": 893.36,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2025-07-20T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-102",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-018",
+    "amount": 679.67,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2025-07-22T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-103",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-002",
+    "amount": 1410,
+    "type": "Income",
+    "description": "Projeto freelance",
+    "date": "2025-07-24T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-104",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-006",
+    "amount": 1004.0,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2025-07-26T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-105",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-07-28T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-106",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-018",
+    "amount": 166.02,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2025-07-30T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-107",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-006",
+    "amount": 1080.23,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2025-08-01T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-108",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-012",
+    "amount": 805.32,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2025-08-03T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-109",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-018",
+    "amount": 1169.0,
+    "type": "Expense",
+    "description": "Presente",
+    "date": "2025-08-05T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-110",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-012",
+    "amount": 1039.56,
+    "type": "Expense",
+    "description": "Netflix",
+    "date": "2025-08-07T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-111",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-005",
+    "amount": 227.54,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2025-08-09T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-112",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-012",
+    "amount": 331.16,
+    "type": "Expense",
+    "description": "Presente",
+    "date": "2025-08-11T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-113",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-08-13T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-114",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-006",
+    "amount": 1032.43,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2025-08-15T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-115",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-019",
+    "amount": 429.35,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2025-08-17T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-116",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-005",
+    "amount": 797.14,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-08-19T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-117",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-013",
+    "amount": 1039.26,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2025-08-21T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-118",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-017",
+    "amount": 820.23,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2025-08-23T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-119",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-005",
+    "amount": 151.68,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2025-08-25T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-120",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-002",
+    "amount": 3178,
+    "type": "Income",
+    "description": "Projeto freelance",
+    "date": "2025-08-27T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-121",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-08-29T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-122",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-008",
+    "amount": 721.94,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2025-08-31T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-123",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-015",
+    "amount": 532.13,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2025-09-02T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-124",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-017",
+    "amount": 1080.91,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2025-09-04T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-125",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-006",
+    "amount": 854.91,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2025-09-06T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-126",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-011",
+    "amount": 446.6,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2025-09-08T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-127",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-015",
+    "amount": 753.44,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-09-10T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-128",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-014",
+    "amount": 615.94,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-09-12T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-129",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-09-14T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-130",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-017",
+    "amount": 841.19,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2025-09-16T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-131",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-011",
+    "amount": 513.23,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-09-18T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-132",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-010",
+    "amount": 744.39,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2025-09-20T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-133",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-005",
+    "amount": 375.09,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2025-09-22T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-134",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-015",
+    "amount": 566.01,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-09-24T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-135",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-011",
+    "amount": 620.74,
+    "type": "Expense",
+    "description": "Presente",
+    "date": "2025-09-26T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-136",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-007",
+    "amount": 351.29,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-09-28T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-137",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-09-30T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-138",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-015",
+    "amount": 125.66,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2025-10-02T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-139",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-014",
+    "amount": 281.2,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2025-10-04T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-140",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-005",
+    "amount": 69.76,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-10-06T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-141",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-007",
+    "amount": 554.67,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-10-08T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-142",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-011",
+    "amount": 866.24,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-10-10T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-143",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-017",
+    "amount": 304.12,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-10-12T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-144",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-005",
+    "amount": 1072.8,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2025-10-14T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-145",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-10-16T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-146",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-010",
+    "amount": 967.87,
+    "type": "Expense",
+    "description": "Presente",
+    "date": "2025-10-18T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-147",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-019",
+    "amount": 74.51,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2025-10-20T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-148",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-019",
+    "amount": 173.01,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-10-22T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-149",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-015",
+    "amount": 1140.8,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-10-24T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-150",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-018",
+    "amount": 999.22,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2025-10-26T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-151",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-010",
+    "amount": 896.23,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-10-28T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-152",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-013",
+    "amount": 905.86,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-10-30T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-153",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-11-01T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-154",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-002",
+    "amount": 2784,
+    "type": "Income",
+    "description": "Projeto freelance",
+    "date": "2025-11-03T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-155",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-012",
+    "amount": 340.4,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2025-11-05T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-156",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-014",
+    "amount": 292.87,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2025-11-07T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-157",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-007",
+    "amount": 178.97,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2025-11-09T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-158",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-009",
+    "amount": 852.11,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2025-11-11T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-159",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-018",
+    "amount": 407.09,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-11-13T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-160",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-006",
+    "amount": 260.1,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-11-15T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-161",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-11-17T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-162",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-005",
+    "amount": 1030.23,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2025-11-19T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-163",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-020",
+    "amount": 21.99,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2025-11-21T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-164",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-017",
+    "amount": 1026.34,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-11-23T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-165",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-012",
+    "amount": 593.55,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2025-11-25T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-166",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-020",
+    "amount": 49.39,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2025-11-27T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-167",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-017",
+    "amount": 873.15,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-11-29T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-168",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-005",
+    "amount": 1089.71,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2025-12-01T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-169",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-12-03T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-170",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-005",
+    "amount": 114.48,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-12-05T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-171",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-002",
+    "amount": 2691,
+    "type": "Income",
+    "description": "Projeto freelance",
+    "date": "2025-12-07T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-172",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-006",
+    "amount": 323.29,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2025-12-09T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-173",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-019",
+    "amount": 402.31,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2025-12-11T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-174",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-018",
+    "amount": 313.94,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2025-12-13T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-175",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-005",
+    "amount": 902.59,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2025-12-15T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-176",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-012",
+    "amount": 785.42,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2025-12-17T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-177",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2025-12-19T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-178",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-012",
+    "amount": 251.24,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2025-12-21T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-179",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-009",
+    "amount": 297.68,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2025-12-23T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-180",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-008",
+    "amount": 683.3,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2025-12-25T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-181",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-013",
+    "amount": 923.77,
+    "type": "Expense",
+    "description": "Netflix",
+    "date": "2025-12-27T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-182",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-008",
+    "amount": 936.68,
+    "type": "Expense",
+    "description": "Netflix",
+    "date": "2025-12-29T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-183",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-008",
+    "amount": 700.74,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2025-12-31T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-184",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-017",
+    "amount": 485.04,
+    "type": "Expense",
+    "description": "Presente",
+    "date": "2026-01-02T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-185",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2026-01-04T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-186",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-012",
+    "amount": 135.75,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2026-01-06T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-187",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-008",
+    "amount": 958.53,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2026-01-08T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-188",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-002",
+    "amount": 2222,
+    "type": "Income",
+    "description": "Projeto freelance",
+    "date": "2026-01-10T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-189",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-018",
+    "amount": 798.9,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2026-01-12T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-190",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-015",
+    "amount": 29.99,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2026-01-14T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-191",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-008",
+    "amount": 528.73,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2026-01-16T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-192",
+    "accountSeedId": "account-002",
+    "categorySeedId": "category-019",
+    "amount": 853.16,
+    "type": "Expense",
+    "description": "Compra Steam",
+    "date": "2026-01-18T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-193",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2026-01-20T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-194",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-013",
+    "amount": 744.86,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2026-01-22T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-195",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-019",
+    "amount": 531.16,
+    "type": "Expense",
+    "description": "Presente",
+    "date": "2026-01-24T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-196",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-013",
+    "amount": 396.93,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2026-01-26T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-197",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-013",
+    "amount": 1059.73,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2026-01-28T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-198",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-017",
+    "amount": 413.63,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2026-01-30T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-199",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-010",
+    "amount": 592.75,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2026-02-01T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-200",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-015",
+    "amount": 346.4,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2026-02-03T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-201",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2026-02-05T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-202",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-005",
+    "amount": 627.2,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2026-02-07T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-203",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-012",
+    "amount": 868.29,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2026-02-09T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-204",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-012",
+    "amount": 833.37,
+    "type": "Expense",
+    "description": "Aluguel",
+    "date": "2026-02-11T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-205",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-002",
+    "amount": 2810,
+    "type": "Income",
+    "description": "Projeto freelance",
+    "date": "2026-02-13T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-206",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-005",
+    "amount": 125.27,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2026-02-15T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-207",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-012",
+    "amount": 377.85,
+    "type": "Expense",
+    "description": "Curso online",
+    "date": "2026-02-17T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-208",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-020",
+    "amount": 670.87,
+    "type": "Expense",
+    "description": "Restaurante",
+    "date": "2026-02-19T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-209",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2026-02-21T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-210",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-015",
+    "amount": 431.9,
+    "type": "Expense",
+    "description": "Farmácia",
+    "date": "2026-02-23T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-211",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-014",
+    "amount": 312.91,
+    "type": "Expense",
+    "description": "Uber",
+    "date": "2026-02-25T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-212",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-011",
+    "amount": 388.92,
+    "type": "Expense",
+    "description": "Presente",
+    "date": "2026-02-27T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-213",
+    "accountSeedId": "account-004",
+    "categorySeedId": "category-010",
+    "amount": 241.98,
+    "type": "Expense",
+    "description": "Presente",
+    "date": "2026-03-01T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-214",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-013",
+    "amount": 873.63,
+    "type": "Expense",
+    "description": "Combustível",
+    "date": "2026-03-03T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-215",
+    "accountSeedId": "account-003",
+    "categorySeedId": "category-014",
+    "amount": 1176.91,
+    "type": "Expense",
+    "description": "Spotify",
+    "date": "2026-03-05T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-216",
+    "accountSeedId": "account-001",
+    "categorySeedId": "category-012",
+    "amount": 442.64,
+    "type": "Expense",
+    "description": "Academia",
+    "date": "2026-03-07T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-217",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-001",
+    "amount": 10000.0,
+    "type": "Income",
+    "description": "Salário mensal",
+    "date": "2026-03-09T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-218",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-009",
+    "amount": 340.06,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2026-03-11T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-219",
+    "accountSeedId": "account-006",
+    "categorySeedId": "category-014",
+    "amount": 841.44,
+    "type": "Expense",
+    "description": "Netflix",
+    "date": "2026-03-13T00:00:00Z"
+  },
+  {
+    "dbDestination": "transaction",
+    "seedId": "transaction-220",
+    "accountSeedId": "account-005",
+    "categorySeedId": "category-020",
+    "amount": 136.57,
+    "type": "Expense",
+    "description": "Mercado",
+    "date": "2026-03-15T00:00:00Z"
+  }
+]
