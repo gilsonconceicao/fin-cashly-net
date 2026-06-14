@@ -25,7 +25,6 @@ src/
 - Swagger documentation with XML Comments
 
 ### Key Entities
-- User
 - Account
 - Transaction
 - Category
