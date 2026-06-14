@@ -3,8 +3,9 @@ version: '3.8'
 services:
   api:
     build: .
+    container_name: fincashly-api
     ports:
-      - "8080:80"
+      - "8080:8080"
     depends_on:
       - db
     environment:
@@ -13,6 +14,7 @@ services:
 
   db:
     image: postgres:15
+    container_name: fincashly-db
     environment:
       POSTGRES_DB: fincashly
       POSTGRES_USER: postgres
