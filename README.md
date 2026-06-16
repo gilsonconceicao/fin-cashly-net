@@ -17,6 +17,7 @@ src/
 - CQRS (Command Query Responsibility Segregation)
 - MediatR
 - Unit of Work + Repository
+- Memory cache
 - AutoMapper
 - FluentValidation
 - Soft Delete
