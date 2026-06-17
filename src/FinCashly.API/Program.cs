@@ -1,3 +1,4 @@
+using Serilog;
 
 namespace FinCashly.API
 {
@@ -5,13 +6,42 @@ namespace FinCashly.API
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()
+                .CreateBootstrapLogger();
+
+            try
+            {
+                Log.Information("Starting FinCashly API");
+
+                CreateHostBuilder(args)
+                    .Build()
+                    .Run();
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "Application terminated unexpectedly");
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
             return Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
+                .UseSerilog((context, services, configuration) =>
+                {
+                    configuration
+                        .ReadFrom.Configuration(context.Configuration)
+                        .ReadFrom.Services(services)
+                        .Enrich.FromLogContext();
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
         }
     }
 }

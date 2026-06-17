@@ -1,3 +1,4 @@
+using System.Reflection;
 using FinCashly.Application.Accounts.Commands.CreateAccount;
 using FinCashly.Application.Accounts.Commands.DeleteAccount;
 using FinCashly.Application.Accounts.Commands.UpdateAccount;
@@ -23,6 +24,8 @@ public static class Mediators
 {
     public static IServiceCollection AddMediators(this IServiceCollection services)
     {
+        services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
         #region User
         services.AddTransient<IRequestHandler<SetUserRoleCommand, bool>, SetUserRoleHandler>();
         #endregion
