@@ -1,6 +1,6 @@
 using FinCashly.API.Configurations;
 using FinCashly.API.Extensions;
-using FinCashly.Domain.Settings;
+using Serilog;
 
 public class Startup
 {
@@ -14,26 +14,9 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddProblemDetails();
-
         services.AddEndpointsApiExplorer();
-        services.AddSwaggerSetting();
-
-        services.ConnectionWithDataBase(_configuration);
-        services.AddAuthorizationFirebase(_configuration);
-
-        services.EnableFluentValidations();
-        services.AddMediators();
-        services.AddRepositories();
-        services.AddMemoryCacheService();
-
-        services.Configure<FeatureFlagsSettings>(
-            _configuration.GetSection("FeatureFlagsSettings"));
-
-        services.AddHttpContextAccessor();
-
-        services.AddRateLimitingService();
-
-        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        services.RegisterDependencyInjection(_configuration);
+        Log.Logger = new LoggerConfiguration().CreateLogger();
 
         services.AddControllers(opt =>
         {
@@ -44,6 +27,19 @@ public class Startup
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         app.MigrationManagement(_configuration);
+        app.ConfigureTraceCorrolationIdentifier();
+
+        app.UseSerilogRequestLogging(options =>
+        {
+            options.MessageTemplate =
+                   "HTTP {RequestMethod} {RequestPath} => {StatusCode} in {Elapsed:0.0000} ms";
+        });
+
+        app.Use(async (context, next) =>
+        {
+            Log.Information("Incoming request {Method} {Path}", context.Request.Method, context.Request.Path);
+            await next();
+        });
 
         app.UseExceptionHandler(exceptionHandlerApp =>
             exceptionHandlerApp.Run(async context =>

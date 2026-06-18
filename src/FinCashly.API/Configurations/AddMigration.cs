@@ -23,6 +23,22 @@ namespace FinCashly.API.Configurations
             return app;
         }
 
+        public static IApplicationBuilder ConfigureTraceCorrolationIdentifier(this IApplicationBuilder app)
+        {
+            return app.Use(async (context, next) =>
+            {
+                var correlationId =
+                    context.Request.Headers["X-Correlation-ID"].FirstOrDefault()
+                    ?? context.TraceIdentifier;
+
+                using (Serilog.Context.LogContext.PushProperty("CorrelationId", correlationId))
+                {
+                    context.Response.Headers["X-Correlation-ID"] = correlationId;
+                    await next();
+                }
+            });
+        }
+
         private static void RunMigration(IApplicationBuilder app)
         {
             using var scope = app.ApplicationServices.CreateScope();

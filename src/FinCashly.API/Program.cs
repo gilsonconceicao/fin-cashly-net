@@ -7,9 +7,15 @@ namespace FinCashly.API
         public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-                .WriteTo.Console()
+                .MinimumLevel.Debug()
+                .Enrich.WithCorrelationId()
+                .Enrich.WithCorrelationIdHeader("X-Correlation-ID")
+                .Enrich.WithMachineName()
+                .Enrich.WithEnvironmentName()
+                .Enrich.WithThreadId()
+                .WriteTo.Console(outputTemplate: OutputTemplateFormat()
+                )
                 .CreateBootstrapLogger();
-
             try
             {
                 Log.Information("Starting FinCashly API");
@@ -28,13 +34,23 @@ namespace FinCashly.API
             }
         }
 
+        public static string OutputTemplateFormat()
+        {
+            return "[{Timestamp:yyyy-MM-dd HH:mm:ss} {Level:u3}] " + "[{EnvironmentName}] " +
+                "[{MachineName}] " + "[CID:{CorrelationId}] " + "{Message:lj}{NewLine}{Exception}";
+        } 
+
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
             return Host.CreateDefaultBuilder(args)
                 .UseSerilog((context, services, configuration) =>
                 {
                     configuration
-                        .ReadFrom.Configuration(context.Configuration)
+                        .MinimumLevel.Debug()
+                        .WriteTo.Console(
+                        outputTemplate:
+                        "[{Timestamp:HH:mm:ss} {Level:u3}] " +
+                        "{Message:lj}{NewLine}{Exception}")
                         .ReadFrom.Services(services)
                         .Enrich.FromLogContext();
                 })
