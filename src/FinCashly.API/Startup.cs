@@ -18,9 +18,6 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.RegisterDependencyInjection(_configuration);
         Log.Logger = new LoggerConfiguration().CreateLogger();
-
-        services.AddHostedService<BackgroundServiceValidate>();
-
         services.AddControllers(opt =>
         {
             opt.Filters.Add<CustomExceptionFilter>();

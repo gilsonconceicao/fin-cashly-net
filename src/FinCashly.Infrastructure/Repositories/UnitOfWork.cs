@@ -36,6 +36,11 @@ public class UnitOfWork : IUnitOfWork
 
     public async Task CommitTransactionAsync()
     {
+        if (_transaction == null)
+        {
+            throw new InvalidOperationException("No active transaction.");
+        }
+
         await _context.SaveChangesAsync();
         await _transaction!.CommitAsync();
         await _transaction.DisposeAsync();
@@ -55,11 +60,5 @@ public class UnitOfWork : IUnitOfWork
     public async Task SaveChangesAsync()
     {
         await _context.SaveChangesAsync();
-    }
-    
-    public void Dispose()
-    {
-        _transaction?.Dispose();
-        _context.Dispose();
     }
 }

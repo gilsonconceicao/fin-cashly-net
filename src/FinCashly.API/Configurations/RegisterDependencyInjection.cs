@@ -15,6 +15,7 @@ namespace FinCashly.API.Configurations
             services.AddMemoryCacheService();
             services.AddHttpContextAccessor();
             services.AddRateLimitingService();
+            services.AddBackgroundServices();
 
             services.Configure<FeatureFlagsSettings>(configuration.GetSection("FeatureFlagsSettings"));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
