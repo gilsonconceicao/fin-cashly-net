@@ -1,5 +1,6 @@
 using FinCashly.API.Configurations;
 using FinCashly.API.Extensions;
+using FinCashly.Infrastructure.BackgroundServices;
 using Serilog;
 
 public class Startup
@@ -17,6 +18,8 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.RegisterDependencyInjection(_configuration);
         Log.Logger = new LoggerConfiguration().CreateLogger();
+
+        services.AddHostedService<BackgroundServiceValidate>();
 
         services.AddControllers(opt =>
         {
